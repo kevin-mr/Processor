@@ -73,6 +73,13 @@ architecture Behavioral of Main is
 				 data_ir : in  STD_LOGIC_VECTOR (15 downto 0);
 				 output : out  STD_LOGIC_VECTOR (15 downto 0));
 	end component;
+	component RAM is
+		Port ( clock : in  STD_LOGIC;
+             control : in  STD_LOGIC_VECTOR (1 downto 0);
+			    address : in  STD_LOGIC_VECTOR (5 downto 0);
+             input : in  STD_LOGIC_VECTOR (15 downto 0);
+             output : out  STD_LOGIC_VECTOR (15 downto 0));
+	end component;
 	
 	signal incontrol: STD_LOGIC_VECTOR (7 downto 0);
 	signal outcontrol: STD_LOGIC_VECTOR (1 downto 0);
@@ -80,6 +87,7 @@ architecture Behavioral of Main is
 	signal data_mar: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_mbr: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_ir: STD_LOGIC_VECTOR (15 downto 0);
+	signal data_ram: STD_LOGIC_VECTOR (15 downto 0);
 	signal data: STD_LOGIC_VECTOR (15 downto 0);
 begin
 
@@ -109,8 +117,14 @@ G5: IR Port Map(
 		control => incontrol(7 downto 6),
 		input => data,
 		output => data_ir);
+G6: RAM Port Map(
+		clock => clock,
+		control => outcontrol,
+		address => "011110",
+		input => data,
+		output => data_ram);
 		
-process(incontrol,data_pc,data_mar,data_mbr,data_ir)
+process(incontrol,outcontrol,data_pc,data_mar,data_mbr,data_ir,data_ram)
 	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
 begin
 	if incontrol(1) = '1' then 
@@ -121,6 +135,8 @@ begin
 		edata := data_mbr;
 	elsif incontrol(7) = '1' then 
 		edata := data_ir;
+	elsif outcontrol(1) = '1' then
+		edata := data_ram;
 	end if;
 	data <= edata;
 end process;

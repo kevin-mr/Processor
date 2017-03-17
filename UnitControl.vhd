@@ -50,16 +50,16 @@ architecture Behavioral of UnitControl is
 			when 3 =>
 					control := "00001000";
 					return control;
-			when 4 =>
+			when 5 =>
 					control := "00010000";
 					return control;
-			when 5 =>
+			when 6 =>
 					control := "00100000";
 					return control;
-			when 6 =>
+			when 7 =>
 					control := "01000000";
 					return control;
-			when 7 =>
+			when 8 =>
 					control := "10000000";
 					return control;
 			when others =>
@@ -72,6 +72,7 @@ architecture Behavioral of UnitControl is
 begin
 
 process(clock)
+	variable control: STD_LOGIC_VECTOR (9 downto 0);
 	variable counter: integer := 0;
 begin
 	if clock'event and clock = '1' then
@@ -79,9 +80,15 @@ begin
 		
 		case present_state is
 			when fetch =>
-				if counter = 7 then
+				if counter = 8 then
 					incontrol <= fetch_instruction(counter);
 					next_state <= decoding;
+				elsif counter > 4 then
+					incontrol <= fetch_instruction(counter);
+					outcontrol <= "00";
+				elsif counter = 4 then
+					incontrol <= X"00";
+					outcontrol <= "10";
 				elsif counter > 0 then
 					incontrol <= fetch_instruction(counter);
 				end if;

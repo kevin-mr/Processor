@@ -1,4 +1,5 @@
 vhdl work "UnitControl.vhd"
+vhdl work "RAM.vhd"
 vhdl work "PC.vhd"
 vhdl work "MBR.vhd"
 vhdl work "MAR.vhd"

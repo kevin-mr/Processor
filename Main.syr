@@ -105,8 +105,7 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" in Library work.
-Entity <unitcontrol> compiled.
-Entity <unitcontrol> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity unitcontrol is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" in Library work.
 Architecture behavioral of Entity pc is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" in Library work.
@@ -115,8 +114,11 @@ Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de
 Architecture behavioral of Entity mbr is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/IR.vhd" in Library work.
 Architecture behavioral of Entity ir is up to date.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" in Library work.
+Architecture behavioral of Entity ram is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" in Library work.
-Architecture behavioral of Entity main is up to date.
+Entity <main> compiled.
+Entity <main> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -133,6 +135,8 @@ Analyzing hierarchy for entity <MBR> in library <work> (architecture <behavioral
 
 Analyzing hierarchy for entity <IR> in library <work> (architecture <behavioral>).
 
+Analyzing hierarchy for entity <RAM> in library <work> (architecture <behavioral>).
+
 
 =========================================================================
 *                            HDL Analysis                               *
@@ -141,7 +145,6 @@ Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
 Entity <Main> analyzed. Unit <Main> generated.
 
 Analyzing Entity <UnitControl> in library <work> (Architecture <behavioral>).
-INFO:Xst:2679 - Register <outcontrol> in unit <UnitControl> has a constant value of 11 during circuit operation. The register is replaced by logic.
 Entity <UnitControl> analyzed. Unit <UnitControl> generated.
 
 Analyzing Entity <PC> in library <work> (Architecture <behavioral>).
@@ -156,6 +159,11 @@ Entity <MBR> analyzed. Unit <MBR> generated.
 Analyzing Entity <IR> in library <work> (Architecture <behavioral>).
 Entity <IR> analyzed. Unit <IR> generated.
 
+Analyzing Entity <RAM> in library <work> (Architecture <behavioral>).
+WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 54: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 56: Index value(s) does not match array range, simulation mismatch.
+Entity <RAM> analyzed. Unit <RAM> generated.
+
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -165,15 +173,18 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <UnitControl>.
     Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
-WARNING:Xst:647 - Input <data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <next_state<0>> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:647 - Input <data<11:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 2-bit register for signal <outcontrol>.
     Found 8-bit register for signal <incontrol>.
+    Found 10-bit register for signal <control>.
+    Found 32-bit adder for signal <control$add0000> created at line 79.
     Found 32-bit up counter for signal <counter>.
-    Found 32-bit adder for signal <incontrol$add0000> created at line 79.
-    Found 32-bit comparator greater for signal <incontrol$cmp_gt0000> created at line 83.
+    Found 32-bit comparator greater for signal <incontrol$cmp_gt0000> created at line 87.
+    Found 1-bit register for signal <next_state<0>>.
+    Found 1-bit register for signal <present_state<0>>.
     Summary:
 	inferred   1 Counter(s).
-	inferred   8 D-type flip-flop(s).
+	inferred  22 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
 Unit <UnitControl> synthesized.
@@ -215,9 +226,81 @@ Synthesizing Unit <IR>.
 Unit <IR> synthesized.
 
 
+Synthesizing Unit <RAM>.
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd".
+WARNING:Xst:1780 - Signal <ram<64>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <ram<30>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Register <ram<10>> equivalent to <ram<0>> has been removed
+    Register <ram<11>> equivalent to <ram<0>> has been removed
+    Register <ram<12>> equivalent to <ram<0>> has been removed
+    Register <ram<13>> equivalent to <ram<0>> has been removed
+    Register <ram<14>> equivalent to <ram<0>> has been removed
+    Register <ram<15>> equivalent to <ram<0>> has been removed
+    Register <ram<16>> equivalent to <ram<0>> has been removed
+    Register <ram<17>> equivalent to <ram<0>> has been removed
+    Register <ram<18>> equivalent to <ram<0>> has been removed
+    Register <ram<19>> equivalent to <ram<0>> has been removed
+    Register <ram<1>> equivalent to <ram<0>> has been removed
+    Register <ram<20>> equivalent to <ram<0>> has been removed
+    Register <ram<21>> equivalent to <ram<0>> has been removed
+    Register <ram<22>> equivalent to <ram<0>> has been removed
+    Register <ram<23>> equivalent to <ram<0>> has been removed
+    Register <ram<24>> equivalent to <ram<0>> has been removed
+    Register <ram<25>> equivalent to <ram<0>> has been removed
+    Register <ram<26>> equivalent to <ram<0>> has been removed
+    Register <ram<27>> equivalent to <ram<0>> has been removed
+    Register <ram<28>> equivalent to <ram<0>> has been removed
+    Register <ram<29>> equivalent to <ram<0>> has been removed
+    Register <ram<2>> equivalent to <ram<0>> has been removed
+    Register <ram<31>> equivalent to <ram<0>> has been removed
+    Register <ram<32>> equivalent to <ram<0>> has been removed
+    Register <ram<33>> equivalent to <ram<0>> has been removed
+    Register <ram<34>> equivalent to <ram<0>> has been removed
+    Register <ram<35>> equivalent to <ram<0>> has been removed
+    Register <ram<36>> equivalent to <ram<0>> has been removed
+    Register <ram<37>> equivalent to <ram<0>> has been removed
+    Register <ram<38>> equivalent to <ram<0>> has been removed
+    Register <ram<39>> equivalent to <ram<0>> has been removed
+    Register <ram<3>> equivalent to <ram<0>> has been removed
+    Register <ram<40>> equivalent to <ram<0>> has been removed
+    Register <ram<41>> equivalent to <ram<0>> has been removed
+    Register <ram<42>> equivalent to <ram<0>> has been removed
+    Register <ram<43>> equivalent to <ram<0>> has been removed
+    Register <ram<44>> equivalent to <ram<0>> has been removed
+    Register <ram<45>> equivalent to <ram<0>> has been removed
+    Register <ram<46>> equivalent to <ram<0>> has been removed
+    Register <ram<47>> equivalent to <ram<0>> has been removed
+    Register <ram<48>> equivalent to <ram<0>> has been removed
+    Register <ram<49>> equivalent to <ram<0>> has been removed
+    Register <ram<4>> equivalent to <ram<0>> has been removed
+    Register <ram<50>> equivalent to <ram<0>> has been removed
+    Register <ram<51>> equivalent to <ram<0>> has been removed
+    Register <ram<52>> equivalent to <ram<0>> has been removed
+    Register <ram<53>> equivalent to <ram<0>> has been removed
+    Register <ram<54>> equivalent to <ram<0>> has been removed
+    Register <ram<55>> equivalent to <ram<0>> has been removed
+    Register <ram<56>> equivalent to <ram<0>> has been removed
+    Register <ram<57>> equivalent to <ram<0>> has been removed
+    Register <ram<58>> equivalent to <ram<0>> has been removed
+    Register <ram<59>> equivalent to <ram<0>> has been removed
+    Register <ram<5>> equivalent to <ram<0>> has been removed
+    Register <ram<60>> equivalent to <ram<0>> has been removed
+    Register <ram<61>> equivalent to <ram<0>> has been removed
+    Register <ram<62>> equivalent to <ram<0>> has been removed
+    Register <ram<63>> equivalent to <ram<0>> has been removed
+    Register <ram<6>> equivalent to <ram<0>> has been removed
+    Register <ram<7>> equivalent to <ram<0>> has been removed
+    Register <ram<8>> equivalent to <ram<0>> has been removed
+    Register <ram<9>> equivalent to <ram<0>> has been removed
+    Found 16-bit register for signal <data>.
+    Found 16-bit register for signal <ram<0>>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <RAM> synthesized.
+
+
 Synthesizing Unit <Main>.
     Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd".
-WARNING:Xst:646 - Signal <outcontrol> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:737 - Found 16-bit latch for signal <edata>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 Unit <Main> synthesized.
 
@@ -231,8 +314,11 @@ Macro Statistics
  32-bit adder                                          : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 5
- 16-bit register                                       : 4
+# Registers                                            : 10
+ 1-bit register                                        : 2
+ 10-bit register                                       : 1
+ 16-bit register                                       : 5
+ 2-bit register                                        : 1
  8-bit register                                        : 1
 # Latches                                              : 1
  16-bit latch                                          : 1
@@ -257,6 +343,8 @@ WARNING:Xst:1290 - Hierarchical block <G4> is unconnected in block <Main>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <G5> is unconnected in block <Main>.
    It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <G6> is unconnected in block <Main>.
+   It will be removed from the design.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -267,8 +355,8 @@ Macro Statistics
  32-bit adder                                          : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 72
- Flip-Flops                                            : 72
+# Registers                                            : 102
+ Flip-Flops                                            : 102
 # Latches                                              : 1
  16-bit latch                                          : 1
 # Comparators                                          : 1
@@ -281,7 +369,30 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch next_state_0 hinder the constant cleaning in the block UnitControl.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1710 - FF/Latch <control_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <control_6> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <control_7> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <incontrol_6> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <incontrol_7> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_0> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_1> (without init value) has a constant value of 0 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_2> (without init value) has a constant value of 0 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_3> (without init value) has a constant value of 0 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_4> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_5> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_6> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_7> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_8> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_9> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_10> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_11> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_12> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_13> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_14> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_15> (without init value) has a constant value of 1 in block <RAM>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Main> ...
 
@@ -342,13 +453,22 @@ WARNING:Xst:2677 - Node <G1/counter_3> of sequential type is unconnected in bloc
 WARNING:Xst:2677 - Node <G1/counter_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/counter_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/counter_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/incontrol_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/incontrol_6> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_5> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_4> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_3> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/present_state_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/next_state_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/outcontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/outcontrol_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_13> of sequential type is unconnected in block <Main>.
@@ -503,13 +623,13 @@ All values displayed in nanoseconds (ns)
 
 
 Total REAL time to Xst completion: 13.00 secs
-Total CPU time to Xst completion: 13.56 secs
+Total CPU time to Xst completion: 13.59 secs
  
 --> 
 
-Total memory usage is 259760 kilobytes
+Total memory usage is 259724 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  129 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :  163 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
 

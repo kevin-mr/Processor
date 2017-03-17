@@ -4,6 +4,7 @@ Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" into library work
+Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" into library work
@@ -20,11 +21,12 @@ Compiling architecture behavioral of entity PC [pc_default]
 Compiling architecture behavioral of entity MAR [mar_default]
 Compiling architecture behavioral of entity MBR [mbr_default]
 Compiling architecture behavioral of entity IR [ir_default]
+Compiling architecture behavioral of entity RAM [ram_default]
 Compiling architecture behavioral of entity Main [main_default]
 Compiling architecture behavior of entity maintest
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 16 VHDL Units
+Compiled 18 VHDL Units
 Built simulation executable C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Maintest_isim_beh.exe
-Fuse Memory Usage: 33884 KB
-Fuse CPU Usage: 1265 ms
+Fuse Memory Usage: 34020 KB
+Fuse CPU Usage: 1343 ms
