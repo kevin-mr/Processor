@@ -50,9 +50,9 @@ begin
 			when "10" =>
 				output <= registro;
 			when others =>
-				-- Undefined
 		end case;
 	end if;
+	output <= registro;
 end process;
 
 end Behavioral;

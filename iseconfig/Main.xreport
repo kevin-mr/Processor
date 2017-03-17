@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-03-17T09:17:23</DateModified>
+  <DateModified>2017-03-17T12:42:35</DateModified>
   <ModuleName>Main</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/iseconfig/Main.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/iseconfig/Main.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores\</ImplementationReportsDirectory>
   <DateInitialized>2017-03-17T09:17:23</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

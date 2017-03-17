@@ -42,7 +42,7 @@ architecture Behavioral of PC is
 begin
 
 process(clock,control,input)
-	variable registro: STD_LOGIC_VECTOR (15 downto 0) := X"0000";
+	variable registro: STD_LOGIC_VECTOR (15 downto 0) := X"001E";
 begin
 	if clock'event and clock = '1' then
 		case control is
@@ -52,9 +52,9 @@ begin
 				registro := STD_LOGIC_VECTOR(UNSIGNED(registro) + 1);
 				output <= registro;
 			when others =>
-				-- Undefined
 		end case;
 	end if;
+	output <= registro;
 end process;
 
 end Behavioral;

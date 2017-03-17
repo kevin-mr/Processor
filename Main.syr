@@ -68,7 +68,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -104,20 +104,19 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" in Library work.
-WARNING:HDLParsers:3310 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" Line 58. Function fetch is not pure.  VHDL 87 allowed this; VHDL 93 requires the keyword IMPURE.
-Architecture behavioral of Entity unitcontrol is up to date.
-Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/PC.vhd" in Library work.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" in Library work.
+Entity <unitcontrol> compiled.
+Entity <unitcontrol> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" in Library work.
 Architecture behavioral of Entity pc is up to date.
-Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MAR.vhd" in Library work.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" in Library work.
 Architecture behavioral of Entity mar is up to date.
-Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MBR.vhd" in Library work.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd" in Library work.
 Architecture behavioral of Entity mbr is up to date.
-Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/IR.vhd" in Library work.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/IR.vhd" in Library work.
 Architecture behavioral of Entity ir is up to date.
-Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Main.vhd" in Library work.
-Entity <main> compiled.
-Entity <main> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" in Library work.
+Architecture behavioral of Entity main is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -142,9 +141,6 @@ Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
 Entity <Main> analyzed. Unit <Main> generated.
 
 Analyzing Entity <UnitControl> in library <work> (Architecture <behavioral>).
-WARNING:Xst:1960 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" line 50: Potential simulation mismatch, variable <icontrol> declared in block <$PROCESS2> is assigned in block <fetch>.
-WARNING:Xst:1960 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" line 50: Potential simulation mismatch, variable <icontrol> declared in block <$PROCESS2> is assigned in block <fetch>.
-WARNING:Xst:1960 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" line 53: Potential simulation mismatch, variable <icontrol> declared in block <$PROCESS2> is assigned in block <fetch>.
 Entity <UnitControl> analyzed. Unit <UnitControl> generated.
 
 Analyzing Entity <PC> in library <work> (Architecture <behavioral>).
@@ -165,63 +161,60 @@ Entity <IR> analyzed. Unit <IR> generated.
 =========================================================================
 
 Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <next_state> in unit <UnitControl> has a constant value of 0 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <UnitControl>.
-    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
 WARNING:Xst:1305 - Output <outcontrol> is never assigned. Tied to value 00.
-WARNING:Xst:653 - Signal <icontrol> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
     Found 8-bit register for signal <incontrol>.
     Found 32-bit up counter for signal <counter>.
-    Found 32-bit comparator greater for signal <counter$cmp_gt0000> created at line 63.
+    Found 32-bit comparator greater for signal <incontrol$cmp_gt0000> created at line 81.
+    Found 1-bit register for signal <present_state<0>>.
     Summary:
 	inferred   1 Counter(s).
-	inferred   8 D-type flip-flop(s).
+	inferred   9 D-type flip-flop(s).
 	inferred   1 Comparator(s).
 Unit <UnitControl> synthesized.
 
 
 Synthesizing Unit <PC>.
-    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/PC.vhd".
-    Found 16-bit register for signal <output>.
-    Found 16-bit adder for signal <output$add0001> created at line 52.
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd".
     Found 16-bit register for signal <registro>.
+    Found 16-bit adder for signal <registro$addsub0000> created at line 52.
     Found 16-bit 4-to-1 multiplexer for signal <registro$mux0000> created at line 48.
     Summary:
-	inferred  32 D-type flip-flop(s).
+	inferred  16 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred  16 Multiplexer(s).
 Unit <PC> synthesized.
 
 
 Synthesizing Unit <MAR>.
-    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MAR.vhd".
-    Found 16-bit register for signal <output>.
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd".
     Found 16-bit register for signal <registro>.
     Summary:
-	inferred  32 D-type flip-flop(s).
+	inferred  16 D-type flip-flop(s).
 Unit <MAR> synthesized.
 
 
 Synthesizing Unit <MBR>.
-    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MBR.vhd".
-    Found 16-bit register for signal <output>.
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd".
     Found 16-bit register for signal <registro>.
     Summary:
-	inferred  32 D-type flip-flop(s).
+	inferred  16 D-type flip-flop(s).
 Unit <MBR> synthesized.
 
 
 Synthesizing Unit <IR>.
-    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/IR.vhd".
-    Found 16-bit register for signal <output>.
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/IR.vhd".
     Found 16-bit register for signal <registro>.
     Summary:
-	inferred  32 D-type flip-flop(s).
+	inferred  16 D-type flip-flop(s).
 Unit <IR> synthesized.
 
 
 Synthesizing Unit <Main>.
-    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Main.vhd".
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd".
 WARNING:Xst:646 - Signal <outcontrol> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:737 - Found 16-bit latch for signal <edata>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 Unit <Main> synthesized.
@@ -233,11 +226,16 @@ HDL Synthesis Report
 Macro Statistics
 # Adders/Subtractors                                   : 1
  16-bit adder                                          : 1
-# Registers                                            : 9
- 16-bit register                                       : 8
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 6
+ 1-bit register                                        : 1
+ 16-bit register                                       : 4
  8-bit register                                        : 1
 # Latches                                              : 1
  16-bit latch                                          : 1
+# Comparators                                          : 1
+ 32-bit comparator greater                             : 1
 # Multiplexers                                         : 1
  16-bit 4-to-1 multiplexer                             : 1
 
@@ -257,7 +255,6 @@ WARNING:Xst:1290 - Hierarchical block <G4> is unconnected in block <Main>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <G5> is unconnected in block <Main>.
    It will be removed from the design.
-WARNING:Xst:2404 -  FFs/Latches <incontrol<7:0>> (without init value) have a constant value of 0 in block <UnitControl>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -265,10 +262,14 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # Adders/Subtractors                                   : 1
  16-bit adder                                          : 1
-# Registers                                            : 128
- Flip-Flops                                            : 128
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 73
+ Flip-Flops                                            : 73
 # Latches                                              : 1
  16-bit latch                                          : 1
+# Comparators                                          : 1
+ 32-bit comparator greater                             : 1
 # Multiplexers                                         : 1
  16-bit 4-to-1 multiplexer                             : 1
 
@@ -277,154 +278,139 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <output_0> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_1> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_2> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_3> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_4> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_5> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_6> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_7> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_8> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_9> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_10> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_11> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_12> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_13> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_14> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_15> (without init value) has a constant value of 0 in block <PC>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <registro_0> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_1> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_2> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_3> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_4> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_5> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_6> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_7> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_8> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_9> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_10> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_11> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_12> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_13> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_14> of sequential type is unconnected in block <PC>.
-WARNING:Xst:2677 - Node <registro_15> of sequential type is unconnected in block <PC>.
-WARNING:Xst:1710 - FF/Latch <registro_15> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_14> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_13> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_12> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_11> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_10> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_9> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_8> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_7> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_6> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_5> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_4> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_3> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_2> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_1> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_0> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_15> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_14> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_13> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_12> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_11> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_10> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_9> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_8> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_7> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_6> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_5> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_4> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_3> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_2> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_1> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_0> (without init value) has a constant value of 0 in block <MAR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <registro_15> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_14> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_13> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_12> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_11> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_10> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_9> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_8> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_7> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_6> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_5> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_4> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_3> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_2> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_1> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_0> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_15> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_14> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_13> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_12> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_11> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_10> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_9> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_8> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_7> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_6> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_5> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_4> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_3> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_2> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_1> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_0> (without init value) has a constant value of 0 in block <MBR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <registro_15> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_14> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_13> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_12> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_11> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_10> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_9> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_8> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_7> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_6> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_5> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_4> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_3> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_2> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_1> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <registro_0> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_15> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_14> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_13> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_12> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_11> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_10> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_9> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_8> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_7> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_6> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_5> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_4> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_3> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_2> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_1> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_0> (without init value) has a constant value of 0 in block <IR>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_0> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_1> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_2> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_3> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_4> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_5> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_6> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_7> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_8> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_9> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_10> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_11> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_12> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_13> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_14> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <edata_15> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1899 - Due to constant pushing, all outputs of the instance <G5> of the block <IR> are unconnected in block <Main>.
-   This instance will be removed from the design along with all underlying logic
+WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_0> has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Main> ...
+
+Optimizing unit <UnitControl> ...
+
+Optimizing unit <PC> ...
+
+Optimizing unit <MAR> ...
+
+Optimizing unit <MBR> ...
+
+Optimizing unit <IR> ...
+WARNING:Xst:2677 - Node <edata_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <edata_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_31> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_30> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_29> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_28> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_27> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_26> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_25> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_24> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_23> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_22> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_21> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_20> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_19> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_18> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_17> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_16> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/counter_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/incontrol_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/incontrol_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/incontrol_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/incontrol_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/incontrol_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/incontrol_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/incontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G2/registro_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G3/registro_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G4/registro_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G5/registro_0> of sequential type is unconnected in block <Main>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -514,14 +500,14 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 11.32 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.46 secs
  
 --> 
 
-Total memory usage is 259756 kilobytes
+Total memory usage is 259716 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  159 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :  129 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

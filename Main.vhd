@@ -63,7 +63,16 @@ architecture Behavioral of Main is
              incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
              outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
 	end component;
-
+	component DataBusControl is
+		Port ( clock : in  STD_LOGIC;
+				 control: in  STD_LOGIC_VECTOR (8 downto 0);
+				 data_pc : in  STD_LOGIC_VECTOR (15 downto 0);
+				 data_mar : in  STD_LOGIC_VECTOR (15 downto 0);
+				 data_mbr : in  STD_LOGIC_VECTOR (15 downto 0);
+				 data_ir : in  STD_LOGIC_VECTOR (15 downto 0);
+				 output : out  STD_LOGIC_VECTOR (15 downto 0));
+	end component;
+	
 	signal incontrol: STD_LOGIC_VECTOR (7 downto 0);
 	signal outcontrol: STD_LOGIC_VECTOR (1 downto 0);
 	signal data_pc: STD_LOGIC_VECTOR (15 downto 0);
@@ -99,28 +108,19 @@ G5: IR Port Map(
 		input => data,
 		output => data_ir);
 		
-process(incontrol,data_pc,data_mar,data_mbr,data_ir,data)
-	variable edata: STD_LOGIC_VECTOR (15 downto 0);
+process(incontrol,data_pc,data_mar,data_mbr,data_ir)
+	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
 begin
-	
-	if clock'event and clock = '1' then
-		if incontrol /= X"00" then
-		
-		else
-			if incontrol(1) = '1' then 
-				edata := data_pc;
-			elsif incontrol(3) = '1' then
-				edata := data_mar;
-			elsif incontrol(5) = '1' then 
-				edata := data_mbr;
-			elsif incontrol(7) = '1' then 
-				edata := data_ir;
-			else
-			end if;
-				data <= edata;
-		end if;
-		
+	if incontrol(1) = '1' then 
+		edata := data_pc;
+	elsif incontrol(3) = '1' then
+		edata := data_mar;
+	elsif incontrol(5) = '1' then 
+		edata := data_mbr;
+	elsif incontrol(7) = '1' then 
+		edata := data_ir;
 	end if;
+	data <= edata;
 end process;
 
 end Behavioral;

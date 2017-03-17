@@ -1,5 +1,5 @@
 ISim log file
-Running: C:\Users\U\Documents\UNIVERSIDAD\Semestre 9\Arquitectura de procesadores\Procesador2\ProyectoFinalArquitecturaProcesadores\Maintest_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Maintest_isim_beh.wdb 
+Running: C:\Users\U\Documents\UNIVERSIDAD\Semestre 9\Arquitectura de procesadores\ProyectoFinalArquitecturaProcesadores\Maintest_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Maintest_isim_beh.wdb 
 ISim P.20131013 (signature 0x7708f090)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -12,7 +12,6 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 # restart
-# run all
+# run 1.00us
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-Stopped at time : 3235345 ns : File "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Maintest.vhd" Line 67

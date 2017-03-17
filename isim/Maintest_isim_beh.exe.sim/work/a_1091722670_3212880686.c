@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MBR.vhd";
+static const char *ng0 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd";
 
 
 
@@ -55,19 +55,29 @@ LAB7:    if (t1 != 0)
         goto LAB2;
 
 LAB4:
-LAB3:    t2 = (t0 + 3112);
+LAB3:    xsi_set_current_line(55, ng0);
+    t2 = (t0 + 1808U);
+    t4 = *((char **)t2);
+    t2 = (t0 + 3192);
+    t5 = (t2 + 56U);
+    t8 = *((char **)t5);
+    t9 = (t8 + 56U);
+    t11 = *((char **)t9);
+    memcpy(t11, t4, 16U);
+    xsi_driver_first_trans_fast_port(t2);
+    t2 = (t0 + 3112);
     *((int *)t2) = 1;
 
 LAB1:    return;
 LAB2:    xsi_set_current_line(47, ng0);
     t4 = (t0 + 1192U);
     t8 = *((char **)t4);
-    t4 = (t0 + 5647);
+    t4 = (t0 + 5555);
     t10 = xsi_mem_cmp(t4, t8, 2U);
     if (t10 == 1)
         goto LAB9;
 
-LAB12:    t11 = (t0 + 5649);
+LAB12:    t11 = (t0 + 5557);
     t13 = xsi_mem_cmp(t11, t8, 2U);
     if (t13 == 1)
         goto LAB10;

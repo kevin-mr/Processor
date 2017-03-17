@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/PC.vhd";
+static const char *ng0 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd";
 extern char *IEEE_P_1242562249;
 
 char *ieee_p_1242562249_sub_1919365254_1035706684(char *, char *, char *, char *, int );
@@ -60,19 +60,29 @@ LAB7:    if (t1 != 0)
         goto LAB2;
 
 LAB4:
-LAB3:    t2 = (t0 + 3112);
+LAB3:    xsi_set_current_line(57, ng0);
+    t2 = (t0 + 1808U);
+    t4 = *((char **)t2);
+    t2 = (t0 + 3192);
+    t5 = (t2 + 56U);
+    t8 = *((char **)t5);
+    t9 = (t8 + 56U);
+    t11 = *((char **)t9);
+    memcpy(t11, t4, 16U);
+    xsi_driver_first_trans_fast_port(t2);
+    t2 = (t0 + 3112);
     *((int *)t2) = 1;
 
 LAB1:    return;
 LAB2:    xsi_set_current_line(48, ng0);
     t4 = (t0 + 1192U);
     t8 = *((char **)t4);
-    t4 = (t0 + 5659);
+    t4 = (t0 + 5567);
     t10 = xsi_mem_cmp(t4, t8, 2U);
     if (t10 == 1)
         goto LAB9;
 
-LAB12:    t11 = (t0 + 5661);
+LAB12:    t11 = (t0 + 5569);
     t13 = xsi_mem_cmp(t11, t8, 2U);
     if (t13 == 1)
         goto LAB10;
@@ -100,7 +110,7 @@ LAB9:    xsi_set_current_line(50, ng0);
 LAB10:    xsi_set_current_line(52, ng0);
     t2 = (t0 + 1808U);
     t4 = *((char **)t2);
-    t2 = (t0 + 5600U);
+    t2 = (t0 + 5508U);
     t5 = ieee_p_1242562249_sub_1919365254_1035706684(IEEE_P_1242562249, t17, t4, t2, 1);
     t8 = (t0 + 1808U);
     t9 = *((char **)t8);

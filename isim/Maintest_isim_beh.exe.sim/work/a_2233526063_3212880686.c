@@ -22,12 +22,12 @@
 #define alloca _alloca
 #endif
 extern char *IEEE_P_2592010699;
-static const char *ng1 = "Function fetch ended without a return statement";
-static const char *ng2 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd";
+static const char *ng1 = "Function fetch_instruction ended without a return statement";
+static const char *ng2 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd";
 
 
 
-char *work_a_2233526063_3212880686_sub_3309863398_4259834431(char *t1, char *t2, int t3)
+char *work_a_2233526063_3212880686_sub_619766279_3057020925(char *t1, char *t2, int t3)
 {
     char t4[128];
     char t5[8];
@@ -54,7 +54,7 @@ char *work_a_2233526063_3212880686_sub_3309863398_4259834431(char *t1, char *t2,
     int t26;
     unsigned int t27;
 
-LAB0:    t6 = (t1 + 5364);
+LAB0:    t6 = (t1 + 5996);
     t9 = (t8 + 0U);
     t10 = (t9 + 0U);
     *((int *)t10) = 7;
@@ -83,17 +83,26 @@ LAB0:    t6 = (t1 + 5364);
     if (t3 == 0)
         goto LAB3;
 
-LAB8:    if (t3 == 1)
+LAB11:    if (t3 == 1)
         goto LAB4;
 
-LAB9:    if (t3 == 2)
+LAB12:    if (t3 == 2)
         goto LAB5;
 
-LAB10:    if (t3 == 3)
+LAB13:    if (t3 == 3)
         goto LAB6;
 
-LAB11:
-LAB7:    t6 = (t10 + 56U);
+LAB14:    if (t3 == 4)
+        goto LAB7;
+
+LAB15:    if (t3 == 5)
+        goto LAB8;
+
+LAB16:    if (t3 == 6)
+        goto LAB9;
+
+LAB17:
+LAB10:    t6 = (t10 + 56U);
     t7 = *((char **)t6);
     t6 = (t8 + 12U);
     t12 = *((unsigned int *)t6);
@@ -124,7 +133,7 @@ LAB2:    xsi_error(ng1);
     t0 = 0;
     goto LAB1;
 
-LAB3:    t20 = (t1 + 5372);
+LAB3:    t20 = (t1 + 6004);
     t22 = (t10 + 56U);
     t23 = *((char **)t22);
     t22 = (t23 + 0);
@@ -156,61 +165,7 @@ LAB3:    t20 = (t1 + 5372);
     *((unsigned int *)t17) = t27;
     goto LAB1;
 
-LAB4:    t6 = (t10 + 56U);
-    t7 = *((char **)t6);
-    t6 = (t8 + 12U);
-    t12 = *((unsigned int *)t6);
-    t12 = (t12 * 1U);
-    t0 = xsi_get_transient_memory(t12);
-    memcpy(t0, t7, t12);
-    t9 = (t8 + 0U);
-    t11 = *((int *)t9);
-    t13 = (t8 + 4U);
-    t24 = *((int *)t13);
-    t14 = (t8 + 8U);
-    t25 = *((int *)t14);
-    t16 = (t2 + 0U);
-    t17 = (t16 + 0U);
-    *((int *)t17) = t11;
-    t17 = (t16 + 4U);
-    *((int *)t17) = t24;
-    t17 = (t16 + 8U);
-    *((int *)t17) = t25;
-    t26 = (t24 - t11);
-    t27 = (t26 * t25);
-    t27 = (t27 + 1);
-    t17 = (t16 + 12U);
-    *((unsigned int *)t17) = t27;
-    goto LAB1;
-
-LAB5:    t6 = (t10 + 56U);
-    t7 = *((char **)t6);
-    t6 = (t8 + 12U);
-    t12 = *((unsigned int *)t6);
-    t12 = (t12 * 1U);
-    t0 = xsi_get_transient_memory(t12);
-    memcpy(t0, t7, t12);
-    t9 = (t8 + 0U);
-    t11 = *((int *)t9);
-    t13 = (t8 + 4U);
-    t24 = *((int *)t13);
-    t14 = (t8 + 8U);
-    t25 = *((int *)t14);
-    t16 = (t2 + 0U);
-    t17 = (t16 + 0U);
-    *((int *)t17) = t11;
-    t17 = (t16 + 4U);
-    *((int *)t17) = t24;
-    t17 = (t16 + 8U);
-    *((int *)t17) = t25;
-    t26 = (t24 - t11);
-    t27 = (t26 * t25);
-    t27 = (t27 + 1);
-    t17 = (t16 + 12U);
-    *((unsigned int *)t17) = t27;
-    goto LAB1;
-
-LAB6:    t6 = (t1 + 5380);
+LAB4:    t6 = (t1 + 6012);
     t9 = (t10 + 56U);
     t13 = *((char **)t9);
     t9 = (t13 + 0);
@@ -242,16 +197,182 @@ LAB6:    t6 = (t1 + 5380);
     *((unsigned int *)t17) = t27;
     goto LAB1;
 
-LAB12:;
-LAB13:    goto LAB2;
+LAB5:    t6 = (t1 + 6020);
+    t9 = (t10 + 56U);
+    t13 = *((char **)t9);
+    t9 = (t13 + 0);
+    memcpy(t9, t6, 8U);
+    t6 = (t10 + 56U);
+    t7 = *((char **)t6);
+    t6 = (t8 + 12U);
+    t12 = *((unsigned int *)t6);
+    t12 = (t12 * 1U);
+    t0 = xsi_get_transient_memory(t12);
+    memcpy(t0, t7, t12);
+    t9 = (t8 + 0U);
+    t11 = *((int *)t9);
+    t13 = (t8 + 4U);
+    t24 = *((int *)t13);
+    t14 = (t8 + 8U);
+    t25 = *((int *)t14);
+    t16 = (t2 + 0U);
+    t17 = (t16 + 0U);
+    *((int *)t17) = t11;
+    t17 = (t16 + 4U);
+    *((int *)t17) = t24;
+    t17 = (t16 + 8U);
+    *((int *)t17) = t25;
+    t26 = (t24 - t11);
+    t27 = (t26 * t25);
+    t27 = (t27 + 1);
+    t17 = (t16 + 12U);
+    *((unsigned int *)t17) = t27;
+    goto LAB1;
 
-LAB14:    goto LAB2;
+LAB6:    t6 = (t1 + 6028);
+    t9 = (t10 + 56U);
+    t13 = *((char **)t9);
+    t9 = (t13 + 0);
+    memcpy(t9, t6, 8U);
+    t6 = (t10 + 56U);
+    t7 = *((char **)t6);
+    t6 = (t8 + 12U);
+    t12 = *((unsigned int *)t6);
+    t12 = (t12 * 1U);
+    t0 = xsi_get_transient_memory(t12);
+    memcpy(t0, t7, t12);
+    t9 = (t8 + 0U);
+    t11 = *((int *)t9);
+    t13 = (t8 + 4U);
+    t24 = *((int *)t13);
+    t14 = (t8 + 8U);
+    t25 = *((int *)t14);
+    t16 = (t2 + 0U);
+    t17 = (t16 + 0U);
+    *((int *)t17) = t11;
+    t17 = (t16 + 4U);
+    *((int *)t17) = t24;
+    t17 = (t16 + 8U);
+    *((int *)t17) = t25;
+    t26 = (t24 - t11);
+    t27 = (t26 * t25);
+    t27 = (t27 + 1);
+    t17 = (t16 + 12U);
+    *((unsigned int *)t17) = t27;
+    goto LAB1;
 
-LAB15:    goto LAB2;
+LAB7:    t6 = (t1 + 6036);
+    t9 = (t10 + 56U);
+    t13 = *((char **)t9);
+    t9 = (t13 + 0);
+    memcpy(t9, t6, 8U);
+    t6 = (t10 + 56U);
+    t7 = *((char **)t6);
+    t6 = (t8 + 12U);
+    t12 = *((unsigned int *)t6);
+    t12 = (t12 * 1U);
+    t0 = xsi_get_transient_memory(t12);
+    memcpy(t0, t7, t12);
+    t9 = (t8 + 0U);
+    t11 = *((int *)t9);
+    t13 = (t8 + 4U);
+    t24 = *((int *)t13);
+    t14 = (t8 + 8U);
+    t25 = *((int *)t14);
+    t16 = (t2 + 0U);
+    t17 = (t16 + 0U);
+    *((int *)t17) = t11;
+    t17 = (t16 + 4U);
+    *((int *)t17) = t24;
+    t17 = (t16 + 8U);
+    *((int *)t17) = t25;
+    t26 = (t24 - t11);
+    t27 = (t26 * t25);
+    t27 = (t27 + 1);
+    t17 = (t16 + 12U);
+    *((unsigned int *)t17) = t27;
+    goto LAB1;
 
-LAB16:    goto LAB2;
+LAB8:    t6 = (t1 + 6044);
+    t9 = (t10 + 56U);
+    t13 = *((char **)t9);
+    t9 = (t13 + 0);
+    memcpy(t9, t6, 8U);
+    t6 = (t10 + 56U);
+    t7 = *((char **)t6);
+    t6 = (t8 + 12U);
+    t12 = *((unsigned int *)t6);
+    t12 = (t12 * 1U);
+    t0 = xsi_get_transient_memory(t12);
+    memcpy(t0, t7, t12);
+    t9 = (t8 + 0U);
+    t11 = *((int *)t9);
+    t13 = (t8 + 4U);
+    t24 = *((int *)t13);
+    t14 = (t8 + 8U);
+    t25 = *((int *)t14);
+    t16 = (t2 + 0U);
+    t17 = (t16 + 0U);
+    *((int *)t17) = t11;
+    t17 = (t16 + 4U);
+    *((int *)t17) = t24;
+    t17 = (t16 + 8U);
+    *((int *)t17) = t25;
+    t26 = (t24 - t11);
+    t27 = (t26 * t25);
+    t27 = (t27 + 1);
+    t17 = (t16 + 12U);
+    *((unsigned int *)t17) = t27;
+    goto LAB1;
 
-LAB17:    goto LAB2;
+LAB9:    t6 = (t1 + 6052);
+    t9 = (t10 + 56U);
+    t13 = *((char **)t9);
+    t9 = (t13 + 0);
+    memcpy(t9, t6, 8U);
+    t6 = (t10 + 56U);
+    t7 = *((char **)t6);
+    t6 = (t8 + 12U);
+    t12 = *((unsigned int *)t6);
+    t12 = (t12 * 1U);
+    t0 = xsi_get_transient_memory(t12);
+    memcpy(t0, t7, t12);
+    t9 = (t8 + 0U);
+    t11 = *((int *)t9);
+    t13 = (t8 + 4U);
+    t24 = *((int *)t13);
+    t14 = (t8 + 8U);
+    t25 = *((int *)t14);
+    t16 = (t2 + 0U);
+    t17 = (t16 + 0U);
+    *((int *)t17) = t11;
+    t17 = (t16 + 4U);
+    *((int *)t17) = t24;
+    t17 = (t16 + 8U);
+    *((int *)t17) = t25;
+    t26 = (t24 - t11);
+    t27 = (t26 * t25);
+    t27 = (t27 + 1);
+    t17 = (t16 + 12U);
+    *((unsigned int *)t17) = t27;
+    goto LAB1;
+
+LAB18:;
+LAB19:    goto LAB2;
+
+LAB20:    goto LAB2;
+
+LAB21:    goto LAB2;
+
+LAB22:    goto LAB2;
+
+LAB23:    goto LAB2;
+
+LAB24:    goto LAB2;
+
+LAB25:    goto LAB2;
+
+LAB26:    goto LAB2;
 
 }
 
@@ -275,7 +396,7 @@ static void work_a_2233526063_3212880686_p_0(char *t0)
     char *t16;
     int t17;
 
-LAB0:    xsi_set_current_line(65, ng2);
+LAB0:    xsi_set_current_line(76, ng2);
     t2 = (t0 + 992U);
     t3 = xsi_signal_has_event(t2);
     if (t3 == 1)
@@ -287,24 +408,24 @@ LAB7:    if (t1 != 0)
         goto LAB2;
 
 LAB4:
-LAB3:    t2 = (t0 + 2952);
+LAB3:    t2 = (t0 + 3272);
     *((int *)t2) = 1;
 
 LAB1:    return;
-LAB2:    xsi_set_current_line(67, ng2);
-    t4 = (t0 + 1648U);
+LAB2:    xsi_set_current_line(78, ng2);
+    t4 = (t0 + 1968U);
     t8 = *((char **)t4);
     t9 = *((int *)t8);
-    t10 = (t9 > 3);
+    t10 = (t9 > 6);
     if (t10 != 0)
         goto LAB8;
 
 LAB10:
-LAB9:    xsi_set_current_line(71, ng2);
-    t2 = (t0 + 1648U);
+LAB9:    xsi_set_current_line(82, ng2);
+    t2 = (t0 + 1968U);
     t4 = *((char **)t2);
     t9 = *((int *)t4);
-    t2 = work_a_2233526063_3212880686_sub_3309863398_4259834431(t0, t12, t9);
+    t2 = work_a_2233526063_3212880686_sub_619766279_3057020925(t0, t12, t9);
     t5 = (t12 + 12U);
     t13 = *((unsigned int *)t5);
     t13 = (t13 * 1U);
@@ -312,19 +433,19 @@ LAB9:    xsi_set_current_line(71, ng2);
     if (t1 == 1)
         goto LAB11;
 
-LAB12:    t8 = (t0 + 3032);
+LAB12:    t8 = (t0 + 3352);
     t11 = (t8 + 56U);
     t14 = *((char **)t11);
     t15 = (t14 + 56U);
     t16 = *((char **)t15);
     memcpy(t16, t2, 8U);
     xsi_driver_first_trans_fast_port(t8);
-    xsi_set_current_line(72, ng2);
-    t2 = (t0 + 1648U);
+    xsi_set_current_line(83, ng2);
+    t2 = (t0 + 1968U);
     t4 = *((char **)t2);
     t9 = *((int *)t4);
     t17 = (t9 + 1);
-    t2 = (t0 + 1648U);
+    t2 = (t0 + 1968U);
     t5 = *((char **)t2);
     t2 = (t5 + 0);
     *((int *)t2) = t17;
@@ -337,8 +458,8 @@ LAB5:    t4 = (t0 + 1032U);
     t1 = t7;
     goto LAB7;
 
-LAB8:    xsi_set_current_line(68, ng2);
-    t4 = (t0 + 1648U);
+LAB8:    xsi_set_current_line(79, ng2);
+    t4 = (t0 + 1968U);
     t11 = *((char **)t4);
     t4 = (t11 + 0);
     *((int *)t4) = 0;
@@ -353,7 +474,7 @@ LAB11:    xsi_size_not_matching(8U, t13, 0);
 extern void work_a_2233526063_3212880686_init()
 {
 	static char *pe[] = {(void *)work_a_2233526063_3212880686_p_0};
-	static char *se[] = {(void *)work_a_2233526063_3212880686_sub_3309863398_4259834431};
+	static char *se[] = {(void *)work_a_2233526063_3212880686_sub_619766279_3057020925};
 	xsi_register_didat("work_a_2233526063_3212880686", "isim/Maintest_isim_beh.exe.sim/work/a_2233526063_3212880686.didat");
 	xsi_register_executes(pe);
 	xsi_register_subprogram_executes(se);

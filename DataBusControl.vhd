@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    09:19:52 03/17/2017 
+-- Create Date:    12:54:54 03/17/2017 
 -- Design Name: 
--- Module Name:    MBR - Behavioral 
+-- Module Name:    DataBusControl - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,30 +29,33 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MBR is
+entity DataBusControl is
     Port ( clock : in  STD_LOGIC;
-           control : in  STD_LOGIC_VECTOR (1 downto 0);
-           input : in  STD_LOGIC_VECTOR (15 downto 0);
+			  control: in  STD_LOGIC_VECTOR (8 downto 0);
+           data_pc : in  STD_LOGIC_VECTOR (15 downto 0);
+           data_mar : in  STD_LOGIC_VECTOR (15 downto 0);
+           data_mbr : in  STD_LOGIC_VECTOR (15 downto 0);
+           data_ir : in  STD_LOGIC_VECTOR (15 downto 0);
            output : out  STD_LOGIC_VECTOR (15 downto 0));
-end MBR;
+end DataBusControl;
 
-architecture Behavioral of MBR is
-	
+architecture Behavioral of DataBusControl is
+
 begin
 
-process(clock,control,input)
-	variable registro: STD_LOGIC_VECTOR (15 downto 0);
+process(control,data_pc,data_mar,data_mbr,data_ir)
+	variable data: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
 begin
-	if clock'event and clock = '1' then
-		case control is
-			when "01" =>
-				registro := input;
-			when "10" =>
-				output <= registro;
-			when others =>
-		end case;
-	end if;
-	output <= registro;
+			if control(1) = '1' then 
+				data := data_pc;
+			elsif control(3) = '1' then
+				data := data_mar;
+			elsif control(5) = '1' then 
+				data := data_mbr;
+			elsif control(7) = '1' then 
+				data := data_ir;
+			end if;
+			output <= data;
 end process;
 
 end Behavioral;

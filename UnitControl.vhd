@@ -36,44 +36,59 @@ entity UnitControl is
 end UnitControl;
 
 architecture Behavioral of UnitControl is
-
-begin
-
-process(clock)
-	variable counter: integer := 0;
-	
-	function fetch (state: integer) return STD_LOGIC_VECTOR is
-		variable icontrol: STD_LOGIC_VECTOR (7 downto 0) := X"00";
+	type states is (fetch,
+						 decoding);
+	signal present_state, next_state: states;
+	function fetch_instruction (state: integer) return STD_LOGIC_VECTOR is
+		variable control: STD_LOGIC_VECTOR (7 downto 0) := "00000000";
 	begin
 		case state is
 			when 0 =>
-					icontrol := "00000110";
-					return icontrol;
+					control := "00000010";
+					return control;
 			when 1 =>
-					return icontrol;
+					control := "00000100";
+					return control;
 			when 2 =>
-					return icontrol;
+					control := "00001000";
+					return control;
 			when 3 =>
-					icontrol := "00001000";
-					return icontrol;
+					control := "00010000";
+					return control;
+			when 4 =>
+					control := "00100000";
+					return control;
+			when 5 =>
+					control := "01000000";
+					return control;
+			when 6 =>
+					control := "10000000";
+					return control;
 			when others =>
-					return icontrol;
+					return control;
 		end case;
-	end fetch;
+	end fetch_instruction;
+begin
 
+process(clock,present_state)
+	variable counter: integer := 0;
 begin
 	if clock'event and clock = '1' then
-		
-		if counter > 3 then
-			counter := 0;
-		end if;
-		
-		incontrol <= fetch(counter);
-		counter := counter + 1;
+		present_state <= next_state;
+	
+		case present_state is
+			when fetch =>
+				if counter > 6 then
+					counter := 0;
+					next_state <= present_state;
+				else
+					incontrol <= fetch_instruction(counter);
+					counter := counter + 1;
+				end if;
+			when others =>
+		end case;
 	
 	end if;
-	
-
 
 end process;
 

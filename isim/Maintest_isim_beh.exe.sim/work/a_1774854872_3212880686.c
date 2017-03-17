@@ -21,150 +21,124 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Main.vhd";
+static const char *ng0 = "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd";
 
 
 
 static void work_a_1774854872_3212880686_p_0(char *t0)
 {
-    unsigned char t1;
+    char *t1;
     char *t2;
-    unsigned char t3;
-    char *t4;
-    char *t5;
-    unsigned char t6;
+    int t3;
+    unsigned int t4;
+    unsigned int t5;
+    unsigned int t6;
     unsigned char t7;
-    char *t8;
-    int t9;
-    unsigned int t10;
-    unsigned int t11;
-    unsigned int t12;
-    unsigned char t13;
-    unsigned char t14;
-    char *t15;
-    char *t16;
-    char *t17;
+    unsigned char t8;
+    char *t9;
+    char *t10;
+    char *t11;
+    char *t12;
 
-LAB0:    xsi_set_current_line(105, ng0);
-    t2 = (t0 + 992U);
-    t3 = xsi_signal_has_event(t2);
-    if (t3 == 1)
-        goto LAB5;
-
-LAB6:    t1 = (unsigned char)0;
-
-LAB7:    if (t1 != 0)
+LAB0:    xsi_set_current_line(114, ng0);
+    t1 = (t0 + 1192U);
+    t2 = *((char **)t1);
+    t3 = (1 - 7);
+    t4 = (t3 * -1);
+    t5 = (1U * t4);
+    t6 = (0 + t5);
+    t1 = (t2 + t6);
+    t7 = *((unsigned char *)t1);
+    t8 = (t7 == (unsigned char)3);
+    if (t8 != 0)
         goto LAB2;
 
-LAB4:
-LAB3:    t2 = (t0 + 3752);
-    *((int *)t2) = 1;
+LAB4:    t1 = (t0 + 1192U);
+    t2 = *((char **)t1);
+    t3 = (3 - 7);
+    t4 = (t3 * -1);
+    t5 = (1U * t4);
+    t6 = (0 + t5);
+    t1 = (t2 + t6);
+    t7 = *((unsigned char *)t1);
+    t8 = (t7 == (unsigned char)3);
+    if (t8 != 0)
+        goto LAB5;
+
+LAB6:    t1 = (t0 + 1192U);
+    t2 = *((char **)t1);
+    t3 = (5 - 7);
+    t4 = (t3 * -1);
+    t5 = (1U * t4);
+    t6 = (0 + t5);
+    t1 = (t2 + t6);
+    t7 = *((unsigned char *)t1);
+    t8 = (t7 == (unsigned char)3);
+    if (t8 != 0)
+        goto LAB7;
+
+LAB8:    t1 = (t0 + 1192U);
+    t2 = *((char **)t1);
+    t3 = (7 - 7);
+    t4 = (t3 * -1);
+    t5 = (1U * t4);
+    t6 = (0 + t5);
+    t1 = (t2 + t6);
+    t7 = *((unsigned char *)t1);
+    t8 = (t7 == (unsigned char)3);
+    if (t8 != 0)
+        goto LAB9;
+
+LAB10:
+LAB3:    xsi_set_current_line(123, ng0);
+    t1 = (t0 + 2448U);
+    t2 = *((char **)t1);
+    t1 = (t0 + 3832);
+    t9 = (t1 + 56U);
+    t10 = *((char **)t9);
+    t11 = (t10 + 56U);
+    t12 = *((char **)t11);
+    memcpy(t12, t2, 16U);
+    xsi_driver_first_trans_fast(t1);
+    t1 = (t0 + 3752);
+    *((int *)t1) = 1;
 
 LAB1:    return;
-LAB2:    xsi_set_current_line(106, ng0);
-    t4 = (t0 + 1192U);
-    t8 = *((char **)t4);
-    t9 = (1 - 7);
-    t10 = (t9 * -1);
-    t11 = (1U * t10);
-    t12 = (0 + t11);
-    t4 = (t8 + t12);
-    t13 = *((unsigned char *)t4);
-    t14 = (t13 == (unsigned char)3);
-    if (t14 != 0)
-        goto LAB8;
-
-LAB10:    t2 = (t0 + 1192U);
-    t4 = *((char **)t2);
-    t9 = (3 - 7);
-    t10 = (t9 * -1);
-    t11 = (1U * t10);
-    t12 = (0 + t11);
-    t2 = (t4 + t12);
-    t1 = *((unsigned char *)t2);
-    t3 = (t1 == (unsigned char)3);
-    if (t3 != 0)
-        goto LAB11;
-
-LAB12:    t2 = (t0 + 1192U);
-    t4 = *((char **)t2);
-    t9 = (5 - 7);
-    t10 = (t9 * -1);
-    t11 = (1U * t10);
-    t12 = (0 + t11);
-    t2 = (t4 + t12);
-    t1 = *((unsigned char *)t2);
-    t3 = (t1 == (unsigned char)3);
-    if (t3 != 0)
-        goto LAB13;
-
-LAB14:    t2 = (t0 + 1192U);
-    t4 = *((char **)t2);
-    t9 = (7 - 7);
-    t10 = (t9 * -1);
-    t11 = (1U * t10);
-    t12 = (0 + t11);
-    t2 = (t4 + t12);
-    t1 = *((unsigned char *)t2);
-    t3 = (t1 == (unsigned char)3);
-    if (t3 != 0)
-        goto LAB15;
-
-LAB16:
-LAB9:    xsi_set_current_line(116, ng0);
-    t2 = (t0 + 2448U);
-    t4 = *((char **)t2);
-    t2 = (t0 + 3832);
-    t5 = (t2 + 56U);
-    t8 = *((char **)t5);
-    t15 = (t8 + 56U);
-    t16 = *((char **)t15);
-    memcpy(t16, t4, 16U);
-    xsi_driver_first_trans_fast(t2);
+LAB2:    xsi_set_current_line(115, ng0);
+    t9 = (t0 + 1512U);
+    t10 = *((char **)t9);
+    t9 = (t0 + 2448U);
+    t11 = *((char **)t9);
+    t9 = (t11 + 0);
+    memcpy(t9, t10, 16U);
     goto LAB3;
 
-LAB5:    t4 = (t0 + 1032U);
-    t5 = *((char **)t4);
-    t6 = *((unsigned char *)t5);
-    t7 = (t6 == (unsigned char)3);
-    t1 = t7;
-    goto LAB7;
+LAB5:    xsi_set_current_line(117, ng0);
+    t9 = (t0 + 1672U);
+    t10 = *((char **)t9);
+    t9 = (t0 + 2448U);
+    t11 = *((char **)t9);
+    t9 = (t11 + 0);
+    memcpy(t9, t10, 16U);
+    goto LAB3;
 
-LAB8:    xsi_set_current_line(107, ng0);
-    t15 = (t0 + 1512U);
-    t16 = *((char **)t15);
-    t15 = (t0 + 2448U);
-    t17 = *((char **)t15);
-    t15 = (t17 + 0);
-    memcpy(t15, t16, 16U);
-    goto LAB9;
+LAB7:    xsi_set_current_line(119, ng0);
+    t9 = (t0 + 1832U);
+    t10 = *((char **)t9);
+    t9 = (t0 + 2448U);
+    t11 = *((char **)t9);
+    t9 = (t11 + 0);
+    memcpy(t9, t10, 16U);
+    goto LAB3;
 
-LAB11:    xsi_set_current_line(109, ng0);
-    t5 = (t0 + 1672U);
-    t8 = *((char **)t5);
-    t5 = (t0 + 2448U);
-    t15 = *((char **)t5);
-    t5 = (t15 + 0);
-    memcpy(t5, t8, 16U);
-    goto LAB9;
-
-LAB13:    xsi_set_current_line(111, ng0);
-    t5 = (t0 + 1832U);
-    t8 = *((char **)t5);
-    t5 = (t0 + 2448U);
-    t15 = *((char **)t5);
-    t5 = (t15 + 0);
-    memcpy(t5, t8, 16U);
-    goto LAB9;
-
-LAB15:    xsi_set_current_line(113, ng0);
-    t5 = (t0 + 1992U);
-    t8 = *((char **)t5);
-    t5 = (t0 + 2448U);
-    t15 = *((char **)t5);
-    t5 = (t15 + 0);
-    memcpy(t5, t8, 16U);
-    goto LAB9;
+LAB9:    xsi_set_current_line(121, ng0);
+    t9 = (t0 + 1992U);
+    t10 = *((char **)t9);
+    t9 = (t0 + 2448U);
+    t11 = *((char **)t9);
+    t9 = (t11 + 0);
+    memcpy(t9, t10, 16U);
+    goto LAB3;
 
 }
 
