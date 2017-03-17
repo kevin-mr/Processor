@@ -31,65 +31,72 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity UnitControl is
     Port ( clock : in  STD_LOGIC;
+			  data: in STD_LOGIC_VECTOR (15 downto 0);
            incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
            outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
 end UnitControl;
 
-architecture Behavioral of UnitControl is
-	type states is (fetch,
-						 decoding);
-	signal present_state, next_state: states;
+architecture Behavioral of UnitControl is	
 	function fetch_instruction (state: integer) return STD_LOGIC_VECTOR is
 		variable control: STD_LOGIC_VECTOR (7 downto 0) := "00000000";
 	begin
 		case state is
-			when 0 =>
+			when 1 =>
 					control := "00000010";
 					return control;
-			when 1 =>
+			when 2 =>
 					control := "00000100";
 					return control;
-			when 2 =>
+			when 3 =>
 					control := "00001000";
 					return control;
-			when 3 =>
+			when 4 =>
 					control := "00010000";
 					return control;
-			when 4 =>
+			when 5 =>
 					control := "00100000";
 					return control;
-			when 5 =>
+			when 6 =>
 					control := "01000000";
 					return control;
-			when 6 =>
+			when 7 =>
 					control := "10000000";
 					return control;
 			when others =>
 					return control;
 		end case;
 	end fetch_instruction;
+	type states is (fetch,
+						 decoding);
+	signal present_state, next_state: states;
 begin
 
-process(clock,present_state)
+process(clock)
 	variable counter: integer := 0;
 begin
 	if clock'event and clock = '1' then
-		present_state <= next_state;
-	
+		counter := counter + 1;
+		
 		case present_state is
 			when fetch =>
-				if counter > 6 then
-					counter := 0;
-					next_state <= present_state;
-				else
+				if counter = 7 then
 					incontrol <= fetch_instruction(counter);
-					counter := counter + 1;
+					next_state <= decoding;
+				elsif counter > 0 then
+					incontrol <= fetch_instruction(counter);
 				end if;
-			when others =>
+			when decoding =>
+				counter := 0;
+				incontrol <= X"00";
+				case data(15 downto 12) is
+					when "0000" =>
+						outcontrol <= "11";
+					when others =>
+				end case;
 		end case;
-	
+		
+		present_state <= next_state;
 	end if;
-
 end process;
 
 end Behavioral;

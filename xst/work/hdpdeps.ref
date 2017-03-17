@@ -13,44 +13,44 @@ AR work/DataBusControl/Behavioral 1489770559 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/DataBusControl.vhd" \
       EN work/DataBusControl 1489770558
 FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/IR.vhd" 2017/03/17.14:45:42 P.20131013
-EN work/IR 1489777835 \
+EN work/IR 1489781779 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/IR.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/IR/Behavioral 1489777836 \
+AR work/IR/Behavioral 1489781780 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/IR.vhd" \
-      EN work/IR 1489777835
-FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" 2017/03/17.14:46:55 P.20131013
-EN work/Main 1489777837 \
+      EN work/IR 1489781779
+FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" 2017/03/17.15:31:17 P.20131013
+EN work/Main 1489781781 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/Main/Behavioral 1489777838 \
+AR work/Main/Behavioral 1489781782 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" \
-      EN work/Main 1489777837 CP UnitControl CP PC CP MAR CP MBR CP IR
+      EN work/Main 1489781781 CP UnitControl CP PC CP MAR CP MBR CP IR
 FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" 2017/03/17.14:36:44 P.20131013
-EN work/MAR 1489777831 \
+EN work/MAR 1489781775 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/MAR/Behavioral 1489777832 \
+AR work/MAR/Behavioral 1489781776 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" \
-      EN work/MAR 1489777831
+      EN work/MAR 1489781775
 FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd" 2017/03/17.14:45:47 P.20131013
-EN work/MBR 1489777833 \
+EN work/MBR 1489781777 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/MBR/Behavioral 1489777834 \
+AR work/MBR/Behavioral 1489781778 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd" \
-      EN work/MBR 1489777833
+      EN work/MBR 1489781777
 FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" 2017/03/17.14:50:37 P.20131013
-EN work/PC 1489777829 \
+EN work/PC 1489781773 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/PC/Behavioral 1489777830 \
+AR work/PC/Behavioral 1489781774 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" \
-      EN work/PC 1489777829
-FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" 2017/03/17.15:10:20 P.20131013
-EN work/UnitControl 1489777827 \
+      EN work/PC 1489781773
+FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" 2017/03/17.16:16:05 P.20131013
+EN work/UnitControl 1489781771 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/UnitControl/Behavioral 1489777828 \
+AR work/UnitControl/Behavioral 1489781772 \
       FL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" \
-      EN work/UnitControl 1489777827
+      EN work/UnitControl 1489781771

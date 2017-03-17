@@ -141,6 +141,7 @@ Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
 Entity <Main> analyzed. Unit <Main> generated.
 
 Analyzing Entity <UnitControl> in library <work> (Architecture <behavioral>).
+INFO:Xst:2679 - Register <outcontrol> in unit <UnitControl> has a constant value of 11 during circuit operation. The register is replaced by logic.
 Entity <UnitControl> analyzed. Unit <UnitControl> generated.
 
 Analyzing Entity <PC> in library <work> (Architecture <behavioral>).
@@ -161,18 +162,19 @@ Entity <IR> analyzed. Unit <IR> generated.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <next_state> in unit <UnitControl> has a constant value of 0 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <UnitControl>.
     Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
-WARNING:Xst:1305 - Output <outcontrol> is never assigned. Tied to value 00.
+WARNING:Xst:647 - Input <data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <next_state<0>> is used but never assigned. This sourceless signal will be automatically connected to value 0.
     Found 8-bit register for signal <incontrol>.
     Found 32-bit up counter for signal <counter>.
-    Found 32-bit comparator greater for signal <incontrol$cmp_gt0000> created at line 81.
-    Found 1-bit register for signal <present_state<0>>.
+    Found 32-bit adder for signal <incontrol$add0000> created at line 79.
+    Found 32-bit comparator greater for signal <incontrol$cmp_gt0000> created at line 83.
     Summary:
 	inferred   1 Counter(s).
-	inferred   9 D-type flip-flop(s).
+	inferred   8 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
 Unit <UnitControl> synthesized.
 
@@ -224,12 +226,12 @@ Unit <Main> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 2
  16-bit adder                                          : 1
+ 32-bit adder                                          : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 6
- 1-bit register                                        : 1
+# Registers                                            : 5
  16-bit register                                       : 4
  8-bit register                                        : 1
 # Latches                                              : 1
@@ -260,12 +262,13 @@ WARNING:Xst:1290 - Hierarchical block <G5> is unconnected in block <Main>.
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 2
  16-bit adder                                          : 1
+ 32-bit adder                                          : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 73
- Flip-Flops                                            : 73
+# Registers                                            : 72
+ Flip-Flops                                            : 72
 # Latches                                              : 1
  16-bit latch                                          : 1
 # Comparators                                          : 1
@@ -279,7 +282,6 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_0> has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Main> ...
 
@@ -501,11 +503,11 @@ All values displayed in nanoseconds (ns)
 
 
 Total REAL time to Xst completion: 13.00 secs
-Total CPU time to Xst completion: 13.46 secs
+Total CPU time to Xst completion: 13.56 secs
  
 --> 
 
-Total memory usage is 259716 kilobytes
+Total memory usage is 259760 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  129 (   0 filtered)

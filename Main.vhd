@@ -60,6 +60,7 @@ architecture Behavioral of Main is
 	end component;
 	component UnitControl is
 		Port ( clock : in  STD_LOGIC;
+				 data: in STD_LOGIC_VECTOR (15 downto 0);
              incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
              outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
 	end component;
@@ -85,6 +86,7 @@ begin
 G1: UnitControl 
 	 Port Map(
 		clock => clock,
+		data => data,
 		incontrol => incontrol,
 		outcontrol => outcontrol);
 G2: PC Port Map(

@@ -23,7 +23,8 @@ Compiling architecture behavioral of entity IR [ir_default]
 Compiling architecture behavioral of entity Main [main_default]
 Compiling architecture behavior of entity maintest
 Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 16 VHDL Units
 Built simulation executable C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Maintest_isim_beh.exe
-Fuse Memory Usage: 33816 KB
-Fuse CPU Usage: 1311 ms
+Fuse Memory Usage: 33884 KB
+Fuse CPU Usage: 1265 ms
