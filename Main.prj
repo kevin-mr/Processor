@@ -1,0 +1,6 @@
+vhdl work "UnitControl.vhd"
+vhdl work "PC.vhd"
+vhdl work "MBR.vhd"
+vhdl work "MAR.vhd"
+vhdl work "IR.vhd"
+vhdl work "Main.vhd"

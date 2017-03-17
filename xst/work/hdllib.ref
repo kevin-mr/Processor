@@ -1,0 +1,12 @@
+AR unitcontrol behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" sub00/vhpl05 1489762203
+AR main behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Main.vhd" sub00/vhpl09 1489762213
+EN mar NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MAR.vhd" sub00/vhpl00 1489762206
+EN mbr NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MBR.vhd" sub00/vhpl06 1489762208
+EN ir NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/IR.vhd" sub00/vhpl10 1489762210
+EN pc NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/PC.vhd" sub00/vhpl02 1489762204
+EN main NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Main.vhd" sub00/vhpl08 1489762212
+AR ir behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/IR.vhd" sub00/vhpl11 1489762211
+AR mar behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MAR.vhd" sub00/vhpl01 1489762207
+EN unitcontrol NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" sub00/vhpl04 1489762202
+AR pc behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/PC.vhd" sub00/vhpl03 1489762205
+AR mbr behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/MBR.vhd" sub00/vhpl07 1489762209

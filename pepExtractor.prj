@@ -1,0 +1,6 @@
+work	"IR.vhd"
+work	"MAR.vhd"
+work	"MBR.vhd"
+work	"Main.vhd"
+work	"PC.vhd"
+work	"UnitControl.vhd"

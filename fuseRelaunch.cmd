@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Maintest_isim_beh.exe" -prj "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/Maintest_beh.prj" "work.Maintest" 

@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/Procesador2/ProyectoFinalArquitecturaProcesadores/xst"
+elaborate
+-ifn PC.prj
+-ifmt mixed
