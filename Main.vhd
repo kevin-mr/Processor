@@ -66,7 +66,8 @@ architecture Behavioral of Main is
 				 scontrol: out  STD_LOGIC_VECTOR (2 downto 0);
              incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
 				 rcontrol: out  STD_LOGIC_VECTOR (3 downto 0);
-             outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
+             outcontrol : out  STD_LOGIC_VECTOR (1 downto 0);
+				 acontrol: out  STD_LOGIC_VECTOR (3 downto 0));
 	end component;
 	component DataBusControl is
 		Port ( clock : in  STD_LOGIC;
@@ -96,7 +97,15 @@ architecture Behavioral of Main is
              input : in  STD_LOGIC_VECTOR (15 downto 0);
              output : out  STD_LOGIC_VECTOR (15 downto 0));
 	end component;
+	component ALU is
+		Port ( clock : in  STD_LOGIC;
+			    control : in  STD_LOGIC_VECTOR (3 downto 0);
+             inputTA : in  STD_LOGIC_VECTOR (15 downto 0);
+             inputTB : in  STD_LOGIC_VECTOR (15 downto 0);
+             output : out  STD_LOGIC_VECTOR (15 downto 0));
+	end component;
 	
+	signal acontrol: STD_LOGIC_VECTOR (3 downto 0);
 	signal rcontrol: STD_LOGIC_VECTOR (3 downto 0);
 	signal scontrol: STD_LOGIC_VECTOR (2 downto 0);
 	signal incontrol: STD_LOGIC_VECTOR (7 downto 0);
@@ -110,6 +119,7 @@ architecture Behavioral of Main is
 	signal data_ra: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_rb: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_ram: STD_LOGIC_VECTOR (15 downto 0);
+	signal data_alu: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_bus: STD_LOGIC_VECTOR (15 downto 0);
 	signal address: STD_LOGIC_VECTOR (5 downto 0);
 	signal address_bus: STD_LOGIC_VECTOR (5 downto 0);
@@ -124,7 +134,8 @@ G1: UnitControl
 		scontrol => scontrol,
 		incontrol => incontrol,
 		rcontrol => rcontrol,
-		outcontrol => outcontrol);
+		outcontrol => outcontrol,
+		acontrol => acontrol);
 G2: PC Port Map(
 		clock => clock,
 		control => incontrol(1 downto 0),
@@ -161,6 +172,12 @@ G8: RB Port Map(
 		control => rcontrol(1 downto 0),
 		input => data_bus,
 		output => data_rb);
+G9: ALU Port Map(
+		clock => clock,
+		control => acontrol,
+		inputTA => data_bus,
+		inputTB => data_bus,
+		output => data_alu);
 		
 process(incontrol,outcontrol,scontrol,data_pc,data_mar,data_mbr,data_ir,data_ram,operando_1,operando_2,data_ra,data_rb)
 	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
@@ -179,6 +196,8 @@ begin
 		edata := data_rb;
 	elsif rcontrol(3) = '1' then
 		edata := data_ra;
+	elsif acontrol(3) = '1' then
+		edata := data_alu;
 	end if;
 	data_bus <= edata;
 end process;

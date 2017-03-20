@@ -47,13 +47,15 @@ process(clock,control,inputTA,inputTB)
 	variable TC: STD_LOGIC_VECTOR (15 downto 0);
 begin
 if clock'event and clock = '1' then
-	case control(4 downto 2) is
+	case control(2 downto 0) is
 		when "001" =>
-			TA <= inputTA;
+			TA := inputTA;
 		when "010" =>
-			TB <= inputTB;
+			TB := inputTB;
 		when "011" =>
-			TC <= STD_LOGIC_VECTOR(UNSIGNED(TA) + UNSIGNED(TB));
+			TC := STD_LOGIC_VECTOR(UNSIGNED(TA) + UNSIGNED(TB));
+		when "100" =>
+			TC := TA and TB;
 		when others =>
 	end case;
 	if control(3) = '1' then

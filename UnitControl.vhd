@@ -37,7 +37,8 @@ entity UnitControl is
 			  scontrol: out  STD_LOGIC_VECTOR (2 downto 0);
            incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
 			  rcontrol: out  STD_LOGIC_VECTOR (3 downto 0);
-           outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
+           outcontrol : out  STD_LOGIC_VECTOR (1 downto 0);
+			  acontrol : out  STD_LOGIC_VECTOR (3 downto 0));
 end UnitControl;
 
 architecture Behavioral of UnitControl is	
@@ -46,155 +47,125 @@ architecture Behavioral of UnitControl is
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
 					vincontrol:= "00000010";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
 			when 2 =>
 					vincontrol:= "00000100";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
 			when 3 =>
 					vincontrol:= "00001000";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
 			when 4 =>
 					voutcontrol:= "10";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
 			when 5 =>
 					vincontrol:= "00010000";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
 			when 6 =>
 					vincontrol:= "00100000";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
 			when 7 =>
 					vincontrol:= "01000000";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
 			when 8 =>
 					vincontrol:= "10000000";
-					control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-					return control;
-			when others =>
-					return control;
+			when others =>					
 		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
 	end fetch_instruction;
 	function storage (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
 				vscontrol:= "100";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 2 =>
 				vscontrol:= "010";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 3 =>
 				voutcontrol:= "01";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when others =>
-				return control;
 		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
 	end storage;
 	function move_rb_ra (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
-				vrcontrol:= "1000";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
+				vrcontrol:= "1000";		
 			when 2 =>
 				vrcontrol:= "0001";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when others =>
-				return control;
 		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
 	end move_rb_ra;
 	function move_ra_rb (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
 				vrcontrol:= "0010";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 2 =>
 				vrcontrol:= "0100";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when others =>
-				return control;
 		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
 	end move_ra_rb;
 	function move_ram_ra (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
 				vscontrol:= "010";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 2 =>
 				vrcontrol:= "1000";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 3 =>
 				voutcontrol:= "01";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when others =>
-				return control;
 		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
 	end move_ram_ra;
 	function move_ram_rb (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
 				vscontrol:= "010";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 2 =>
 				vrcontrol:= "0010";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 3 =>
 				voutcontrol:= "01";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when others =>
-				return control;
+			control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+			return control;
 		end case;
 	end move_ram_rb;
 	function move_ra_ram (state: integer) return STD_LOGIC_VECTOR is
@@ -202,70 +173,125 @@ architecture Behavioral of UnitControl is
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
 				vscontrol:= "001";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 2 =>
 				voutcontrol:= "10";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 3 =>
 				vrcontrol:= "0100";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when others =>
-				return control;
 		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
 	end move_ra_ram;
 	function move_rb_ram (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
 				vscontrol:= "001";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 2 =>
 				voutcontrol:= "10";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when 3 =>
 				vrcontrol:= "0001";
-				control := vrcontrol & voutcontrol & vscontrol & vincontrol;
-				return control;
 			when others =>
-				return control;
 		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
 	end move_rb_ram;
-	function add_ra_rb (state: integer) return STD_LOGIC_VECTOR is
+	function add_ram_ra (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
 	begin
 		case state is
 			when 1 =>
-				
-				return control;
+				vrcontrol:= "1000";
 			when 2 =>
-				
-				return control;
+				vacontrol:= "0001";
 			when 3 =>
-				
-				return control;
+				vscontrol:= "010";
+			when 4 =>
+				voutcontrol:= "10";
+			when 5 =>
+				vacontrol:= "0010";
+			when 6 =>
+				vacontrol:= "0011";
+			when 7 =>
+				vacontrol:= "1000";
 			when others =>
-				return control;
 		end case;
-	end add_ra_rb;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
+	end add_ram_ra;
+	function add_ram_rb (state: integer) return STD_LOGIC_VECTOR is
+		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
+		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
+		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
+		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+	begin
+		case state is
+			when 1 =>
+				vrcontrol:= "0010";
+			when 2 =>
+				vacontrol:= "0001";
+			when 3 =>
+				vscontrol:= "010";
+			when 4 =>
+				voutcontrol:= "10";
+			when 5 =>
+				vacontrol:= "0010";
+			when 6 =>
+				vacontrol:= "0011";
+			when 7 =>
+				vacontrol:= "1000";
+			when others =>
+		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
+	end add_ram_rb;
+	function and_ram_ra (state: integer) return STD_LOGIC_VECTOR is
+		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
+		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
+		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
+		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+	begin
+		case state is
+			when 1 =>
+				vrcontrol:= "1000";
+			when 2 =>
+				vacontrol:= "0001";
+			when 3 =>
+				vscontrol:= "010";
+			when 4 =>
+				voutcontrol:= "10";
+			when 5 =>
+				vacontrol:= "0010";
+			when 6 =>
+				vacontrol:= "0100";
+			when 7 =>
+				vacontrol:= "1000";
+			when others =>
+		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
+	end and_ram_ra;
 	type states is (fetch,
 						 decoding);
 	signal present_state, next_state: states;
@@ -273,7 +299,7 @@ begin
 
 process(clock)
 	variable data_ir: STD_LOGIC_VECTOR (15 downto 0);
-	variable control: STD_LOGIC_VECTOR (16 downto 0);
+	variable control: STD_LOGIC_VECTOR (20 downto 0);
 	variable counter: integer := 0;
 	variable counter_decoding: integer := 0;
 begin
@@ -291,6 +317,7 @@ begin
 				scontrol <= control(10 downto 8);
 				outcontrol <= control(12 downto 11);
 				rcontrol <= control(16 downto 13);
+				acontrol <= control(20 downto 17);
 			when decoding =>
 				counter := 0; 
 				counter_decoding := counter_decoding + 1;				
@@ -335,11 +362,24 @@ begin
 								control := move_rb_ram(counter_decoding);
 						end if;
 					when "0010" =>
-						if data_ir(5 downto 0) = "111101" then
-							if counter_decoding = 3 then
+						if data_ir(11 downto 6)/= "111110" and data_ir(5 downto 0) = "111101"then
+							if counter_decoding = 7 then
 								next_state <= fetch;
 							end if;
-								
+								control := add_ram_ra(counter_decoding);
+						end if;
+						if data_ir(11 downto 6)/= "111101" and data_ir(5 downto 0) = "111110"then
+							if counter_decoding = 7 then
+								next_state <= fetch;
+							end if;
+								control := add_ram_rb(counter_decoding);
+						end if;
+					when "0011" =>
+						if data_ir(11 downto 6)/= "111110" and data_ir(5 downto 0) = "111101"then
+							if counter_decoding = 7 then
+								next_state <= fetch;
+							end if;
+								control := and_ram_ra(counter_decoding);
 						end if;
 					when others =>
 				end case;
@@ -347,6 +387,7 @@ begin
 								scontrol <= control(10 downto 8);
 								outcontrol <= control(12 downto 11);
 								rcontrol <= control(16 downto 13);
+								acontrol <= control(20 downto 17);
 		end case;
 		
 		present_state <= next_state;
