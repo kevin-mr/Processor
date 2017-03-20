@@ -208,6 +208,34 @@ architecture Behavioral of UnitControl is
 		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end move_rb_ram;
+	function add_ra_rb (state: integer) return STD_LOGIC_VECTOR is
+		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
+		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
+		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
+		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+	begin
+		case state is
+			when 1 =>
+				vrcontrol:= "1000";
+			when 2 =>
+				vacontrol:= "0001";
+			when 3 =>
+				vrcontrol:= "0010";
+			when 4 =>
+				vacontrol:= "0010";
+			when 5 =>
+				vacontrol:= "0011";
+			when 6 =>
+				vacontrol:= "1000";
+			when 7 =>
+				vrcontrol:= "0100";
+			when others =>
+		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
+	end add_ra_rb;
 	function add_ram_ra (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
@@ -222,7 +250,7 @@ architecture Behavioral of UnitControl is
 			when 2 =>
 				vacontrol:= "0001";
 			when 3 =>
-				vscontrol:= "010";
+				vscontrol:= "001";
 			when 4 =>
 				voutcontrol:= "10";
 			when 5 =>
@@ -231,6 +259,8 @@ architecture Behavioral of UnitControl is
 				vacontrol:= "0011";
 			when 7 =>
 				vacontrol:= "1000";
+			when 8 =>
+				vrcontrol:= "0100";
 			when others =>
 		end case;
 		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
@@ -250,7 +280,7 @@ architecture Behavioral of UnitControl is
 			when 2 =>
 				vacontrol:= "0001";
 			when 3 =>
-				vscontrol:= "010";
+				vscontrol:= "001";
 			when 4 =>
 				voutcontrol:= "10";
 			when 5 =>
@@ -259,12 +289,14 @@ architecture Behavioral of UnitControl is
 				vacontrol:= "0011";
 			when 7 =>
 				vacontrol:= "1000";
+			when 8 =>
+				vrcontrol:= "0001";
 			when others =>
 		end case;
 		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end add_ram_rb;
-	function and_ram_ra (state: integer) return STD_LOGIC_VECTOR is
+	function and_ra_rb (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
@@ -278,7 +310,35 @@ architecture Behavioral of UnitControl is
 			when 2 =>
 				vacontrol:= "0001";
 			when 3 =>
-				vscontrol:= "010";
+				vrcontrol:= "0010";
+			when 4 =>
+				vacontrol:= "0010";
+			when 5 =>
+				vacontrol:= "0100";
+			when 6 =>
+				vacontrol:= "1000";
+			when 7 =>
+				vrcontrol:= "0100";
+			when others =>
+		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
+	end and_ra_rb;
+	function and_ra_ram (state: integer) return STD_LOGIC_VECTOR is
+		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
+		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
+		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
+		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+	begin
+		case state is
+			when 1 =>
+				vrcontrol:= "1000";
+			when 2 =>
+				vacontrol:= "0001";
+			when 3 =>
+				vscontrol:= "001";
 			when 4 =>
 				voutcontrol:= "10";
 			when 5 =>
@@ -287,11 +347,43 @@ architecture Behavioral of UnitControl is
 				vacontrol:= "0100";
 			when 7 =>
 				vacontrol:= "1000";
+			when 8 =>
+				vrcontrol:= "0100";
 			when others =>
 		end case;
 		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
-	end and_ram_ra;
+	end and_ra_ram;
+	function and_rb_ram (state: integer) return STD_LOGIC_VECTOR is
+		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
+		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
+		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
+		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
+		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+	begin
+		case state is
+			when 1 =>
+				vrcontrol:= "0010";
+			when 2 =>
+				vacontrol:= "0001";
+			when 3 =>
+				vscontrol:= "001";
+			when 4 =>
+				voutcontrol:= "10";
+			when 5 =>
+				vacontrol:= "0010";
+			when 6 =>
+				vacontrol:= "0100";
+			when 7 =>
+				vacontrol:= "1000";
+			when 8 =>
+				vrcontrol:= "0001";
+			when others =>
+		end case;
+		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		return control;
+	end and_rb_ram;
 	type states is (fetch,
 						 decoding);
 	signal present_state, next_state: states;
@@ -362,24 +454,42 @@ begin
 								control := move_rb_ram(counter_decoding);
 						end if;
 					when "0010" =>
-						if data_ir(11 downto 6)/= "111110" and data_ir(5 downto 0) = "111101"then
+						if data_ir(11 downto 6) = "111101" and data_ir(5 downto 0) = "111110"then
 							if counter_decoding = 7 then
+								next_state <= fetch;
+							end if;
+								control := add_ra_rb(counter_decoding);
+						end if;
+						if data_ir(11 downto 6) = "111101" and data_ir(5 downto 0) /= "111110"then
+							if counter_decoding = 8 then
 								next_state <= fetch;
 							end if;
 								control := add_ram_ra(counter_decoding);
 						end if;
-						if data_ir(11 downto 6)/= "111101" and data_ir(5 downto 0) = "111110"then
-							if counter_decoding = 7 then
+						if data_ir(11 downto 6) = "111110" and data_ir(5 downto 0) /= "111101"then
+							if counter_decoding = 8 then
 								next_state <= fetch;
 							end if;
 								control := add_ram_rb(counter_decoding);
 						end if;
 					when "0011" =>
-						if data_ir(11 downto 6)/= "111110" and data_ir(5 downto 0) = "111101"then
+						if data_ir(11 downto 6) = "111101" and data_ir(5 downto 0) = "111110"then
 							if counter_decoding = 7 then
 								next_state <= fetch;
 							end if;
-								control := and_ram_ra(counter_decoding);
+								control := and_ra_rb(counter_decoding);
+						end if;
+						if data_ir(11 downto 6) = "111101" and data_ir(5 downto 0) /= "111110"then
+							if counter_decoding = 8 then
+								next_state <= fetch;
+							end if;
+								control := and_ra_ram(counter_decoding);
+						end if;
+						if data_ir(11 downto 6) = "111110" and data_ir(5 downto 0) /= "111101"then
+							if counter_decoding = 8 then
+								next_state <= fetch;
+							end if;
+								control := and_rb_ram(counter_decoding);
 						end if;
 					when others =>
 				end case;

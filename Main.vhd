@@ -179,7 +179,7 @@ G9: ALU Port Map(
 		inputTB => data_bus,
 		output => data_alu);
 		
-process(incontrol,outcontrol,scontrol,data_pc,data_mar,data_mbr,data_ir,data_ram,operando_1,operando_2,data_ra,data_rb)
+process(incontrol,outcontrol,scontrol,acontrol,data_pc,data_mar,data_mbr,data_ir,data_ram,operando_1,operando_2,data_ra,data_rb,data_alu)
 	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
 begin
 	if incontrol(1) = '1' then 
