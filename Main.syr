@@ -105,7 +105,8 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" in Library work.
-Architecture behavioral of Entity unitcontrol is up to date.
+Entity <unitcontrol> compiled.
+Entity <unitcontrol> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" in Library work.
 Architecture behavioral of Entity pc is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" in Library work.
@@ -118,13 +119,12 @@ Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de
 Entity <ram> compiled.
 Entity <ram> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RA.vhd" in Library work.
-Entity <ra> compiled.
-Entity <ra> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity ra is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RB.vhd" in Library work.
-Architecture behavioral of Entity rb is up to date.
+Entity <rb> compiled.
+Entity <rb> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" in Library work.
-Entity <main> compiled.
-Entity <main> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity main is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -192,22 +192,22 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <UnitControl>.
     Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
-    Found 16x17-bit ROM for signal <control$mux0003>.
+    Found 16x17-bit ROM for signal <control$mux0007>.
     Found 6-bit register for signal <operando_1>.
     Found 6-bit register for signal <operando_2>.
     Found 3-bit register for signal <scontrol>.
     Found 4-bit register for signal <rcontrol>.
     Found 2-bit register for signal <outcontrol>.
     Found 8-bit register for signal <incontrol>.
-    Found 32-bit adder for signal <control$add0000> created at line 125.
-    Found 32-bit adder for signal <control$add0001> created at line 143.
+    Found 32-bit adder for signal <control$add0000> created at line 196.
+    Found 32-bit adder for signal <control$add0001> created at line 214.
     Found 32-bit up counter for signal <counter>.
     Found 32-bit up counter for signal <counter_decoding>.
     Found 16-bit register for signal <data_ir>.
     Found 1-bit register for signal <next_state<0>>.
     Found 1-bit register for signal <present_state<0>>.
-    Found 32-bit comparator greater for signal <rcontrol$cmp_gt0000> created at line 133.
-    Found 32-bit comparator greater for signal <rcontrol$cmp_gt0001> created at line 154.
+    Found 32-bit comparator greater for signal <rcontrol$cmp_gt0000> created at line 204.
+    Found 32-bit comparator greater for signal <rcontrol$cmp_gt0001> created at line 241.
     Summary:
 	inferred   1 ROM(s).
 	inferred   2 Counter(s).
@@ -370,9 +370,7 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <rcontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <scontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Main> ...
 
@@ -492,6 +490,7 @@ WARNING:Xst:2677 - Node <G1/operando_1_0> of sequential type is unconnected in b
 WARNING:Xst:2677 - Node <G1/present_state_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/scontrol_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/scontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/scontrol_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/next_state_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/data_ir_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/data_ir_14> of sequential type is unconnected in block <Main>.
@@ -521,6 +520,7 @@ WARNING:Xst:2677 - Node <G1/incontrol_1> of sequential type is unconnected in bl
 WARNING:Xst:2677 - Node <G1/rcontrol_3> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/rcontrol_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/rcontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/rcontrol_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_13> of sequential type is unconnected in block <Main>.
@@ -1730,12 +1730,12 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 
 
-Total REAL time to Xst completion: 23.00 secs
-Total CPU time to Xst completion: 23.08 secs
+Total REAL time to Xst completion: 19.00 secs
+Total CPU time to Xst completion: 18.90 secs
  
 --> 
 
-Total memory usage is 293220 kilobytes
+Total memory usage is 293200 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings : 1270 (   0 filtered)

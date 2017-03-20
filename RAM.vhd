@@ -49,8 +49,8 @@ begin
 
 
 if clock'event and clock = '1' then
-	ram(30) := X"0FFF";
-	ram(31) := "0001000000111110";
+	ram(30) := X"0FF1";
+	ram(31) := "0001111110111101";
 	if control = "10" then	
 		data := ram(to_integer(unsigned(address)));
 	elsif control = "01" then
