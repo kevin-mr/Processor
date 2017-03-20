@@ -169,6 +169,23 @@ architecture Behavioral of UnitControl is
 				return control;
 		end case;
 	end move_ra_ram;
+	function move_rb_ram (state: integer) return STD_LOGIC_VECTOR is
+		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+	begin
+		case state is
+			when 1 =>
+				control := "00000000100000000";
+				return control;
+			when 2 =>
+				control := "00001000000000000";
+				return control;
+			when 3 =>
+				control := "00010000000000000";
+				return control;
+			when others =>
+				return control;
+		end case;
+	end move_rb_ram;
 	type states is (fetch,
 						 decoding);
 	signal present_state, next_state: states;
@@ -292,6 +309,21 @@ begin
 								next_state <= fetch;
 							elsif counter_decoding > 0 then
 								control := move_ra_ram(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+							end if;
+						elsif data_ir(11 downto 6) = "111110" then
+							if counter_decoding = 3 then
+								control := move_rb_ram(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+								next_state <= fetch;
+							elsif counter_decoding > 0 then
+								control := move_rb_ram(counter_decoding);
 								incontrol <= control(7 downto 0);
 								scontrol <= control(10 downto 8);
 								outcontrol <= control(12 downto 11);
