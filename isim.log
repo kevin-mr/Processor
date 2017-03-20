@@ -12,7 +12,6 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /maintest/uut/G6/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 Finished circuit initialization process.
-# run 1.00us
 # restart
 # run 1.00us
 Simulator is doing circuit initialization process.
