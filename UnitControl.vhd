@@ -36,59 +36,128 @@ entity UnitControl is
 			  operando_2: out  STD_LOGIC_VECTOR (5 downto 0);
 			  scontrol: out  STD_LOGIC_VECTOR (2 downto 0);
            incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
+			  rcontrol: out  STD_LOGIC_VECTOR (3 downto 0);
            outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
 end UnitControl;
 
 architecture Behavioral of UnitControl is	
 	function fetch_instruction (state: integer) return STD_LOGIC_VECTOR is
-		variable control: STD_LOGIC_VECTOR (12 downto 0) := "0000000000000";
+		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
 	begin
 		case state is
 			when 1 =>
-					control := "0000000000010";
+					control := "00000000000000010";
 					return control;
 			when 2 =>
-					control := "0000000000100";
+					control := "00000000000000100";
 					return control;
 			when 3 =>
-					control := "0000000001000";
+					control := "00000000000001000";
 					return control;
 			when 4 =>
-					control := "1000000000000";
+					control := "00001000000000000";
 					return control;
 			when 5 =>
-					control := "0000000010000";
+					control := "00000000000010000";
 					return control;
 			when 6 =>
-					control := "0000000100000";
+					control := "00000000000100000";
 					return control;
 			when 7 =>
-					control := "0000001000000";
+					control := "00000000001000000";
 					return control;
 			when 8 =>
-					control := "0000010000000";
+					control := "00000000010000000";
 					return control;
 			when others =>
 					return control;
 		end case;
 	end fetch_instruction;
 	function storage (state: integer) return STD_LOGIC_VECTOR is
-		variable control: STD_LOGIC_VECTOR (12 downto 0) := "0000000000000";
+		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
 	begin
 		case state is
 			when 1 =>
-				control := "0010000000000";
+				control := "00000010000000000";
 				return control;
 			when 2 =>
-				control := "0001000000000";
+				control := "00000001000000000";
 				return control;
 			when 3 =>
-				control := "0100000000000";
+				control := "00000100000000000";
 				return control;
 			when others =>
 				return control;
 		end case;
 	end storage;
+	function move_rb_ra (state: integer) return STD_LOGIC_VECTOR is
+		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+	begin
+		case state is
+			when 1 =>
+				control := "10000000000000000";
+				return control;
+			when 2 =>
+				control := "00010000000000000";
+				return control;
+			when 3 =>
+				control := "00100000000000000";
+				return control;
+			when others =>
+				return control;
+		end case;
+	end move_rb_ra;
+	function move_ra_rb (state: integer) return STD_LOGIC_VECTOR is
+		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+	begin
+		case state is
+			when 1 =>
+				control := "00100000000000000";
+				return control;
+			when 2 =>
+				control := "01000000000000000";
+				return control;
+			when 3 =>
+				control := "10000000000000000";
+				return control;
+			when others =>
+				return control;
+		end case;
+	end move_ra_rb;
+	function move_ram_ra (state: integer) return STD_LOGIC_VECTOR is
+		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+	begin
+		case state is
+			when 1 =>
+				control := "00000001000000000";
+				return control;
+			when 2 =>
+				control := "10000000000000000";
+				return control;
+			when 3 =>
+				control := "00000100000000000";
+				return control;
+			when others =>
+				return control;
+		end case;
+	end move_ram_ra;
+	function move_ram_rb (state: integer) return STD_LOGIC_VECTOR is
+		variable control: STD_LOGIC_VECTOR (16 downto 0) := "00000000000000000";
+	begin
+		case state is
+			when 1 =>
+				control := "00000001000000000";
+				return control;
+			when 2 =>
+				control := "00100000000000000";
+				return control;
+			when 3 =>
+				control := "00000100000000000";
+				return control;
+			when others =>
+				return control;
+		end case;
+	end move_ram_rb;
 	type states is (fetch,
 						 decoding);
 	signal present_state, next_state: states;
@@ -96,7 +165,7 @@ begin
 
 process(clock)
 	variable data_ir: STD_LOGIC_VECTOR (15 downto 0);
-	variable control: STD_LOGIC_VECTOR (12 downto 0);
+	variable control: STD_LOGIC_VECTOR (16 downto 0);
 	variable counter: integer := 0;
 	variable counter_decoding: integer := 0;
 begin
@@ -108,37 +177,102 @@ begin
 				if counter = 8 then
 					control := fetch_instruction(counter);
 					incontrol <= control(7 downto 0);
-					outcontrol <= control(12 downto 11);
 					scontrol <= control(10 downto 8);
+					outcontrol <= control(12 downto 11);
+					rcontrol <= control(16 downto 13);
 					next_state <= decoding;
 					data_ir := data;
 				elsif counter > 0 then
 					control := fetch_instruction(counter);
 					incontrol <= control(7 downto 0);
-					outcontrol <= control(12 downto 11);
 					scontrol <= control(10 downto 8);
+					outcontrol <= control(12 downto 11);
+					rcontrol <= control(16 downto 13);
 				end if;
 			when decoding =>
 				counter := 0; 
-				counter_decoding := counter_decoding + 1;
+				counter_decoding := counter_decoding + 1;				
+				operando_1 <= data_ir(11 downto 6);
+				operando_2 <= data_ir(5 downto 0);
 				case data_ir(15 downto 12) is
 					when "0000" =>
 						if counter_decoding = 3 then
 							control := storage(counter_decoding);
 							incontrol <= control(7 downto 0);
-							outcontrol <= control(12 downto 11);
 							scontrol <= control(10 downto 8);
-							operando_1 <= data_ir(11 downto 6);
-							operando_2 <= data_ir(5 downto 0);
+							outcontrol <= control(12 downto 11);
+							rcontrol <= control(16 downto 13);
 							next_state <= fetch;
 						elsif counter_decoding > 0 then
 							control := storage(counter_decoding);
 							incontrol <= control(7 downto 0);
-							outcontrol <= control(12 downto 11);
 							scontrol <= control(10 downto 8);
-							operando_1 <= data_ir(11 downto 6);
-							operando_2 <= data_ir(5 downto 0);
+							outcontrol <= control(12 downto 11);
+							rcontrol <= control(16 downto 13);
 						end if;
+					when "0001" =>
+						if data_ir(11 downto 6) = "111110" and data_ir(5 downto 0) = "111101" then
+							if counter_decoding = 3 then
+								control := move_rb_ra(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+								next_state <= fetch;
+							elsif counter_decoding > 0 then
+								control := move_rb_ra(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+							end if;
+						elsif data_ir(11 downto 6) = "111101" and data_ir(5 downto 0) = "111110" then
+							if counter_decoding = 3 then
+								control := move_ra_rb(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+								next_state <= fetch;
+							elsif counter_decoding > 0 then
+								control := move_ra_rb(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+							end if;
+						elsif data_ir(5 downto 0) = "111101" then
+							if counter_decoding = 3 then
+								control := move_ram_ra(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+								next_state <= fetch;
+							elsif counter_decoding > 0 then
+								control := move_ram_ra(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+							end if;
+						elsif data_ir(5 downto 0) = "111110" then
+							if counter_decoding = 3 then
+								control := move_ram_rb(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+								next_state <= fetch;
+							elsif counter_decoding > 0 then
+								control := move_ram_rb(counter_decoding);
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
+							end if;
+						end if;
+						
 					when others =>
 				end case;
 		end case;
