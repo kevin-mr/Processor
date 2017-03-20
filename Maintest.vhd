@@ -50,7 +50,7 @@ ARCHITECTURE behavior OF Maintest IS
    signal clock : std_logic := '0';
 
    -- Clock period definitions
-   constant clock_period : time := 10 ns;
+   constant clock_period : time := 1 ns;
  
 BEGIN
  

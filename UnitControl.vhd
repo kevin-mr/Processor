@@ -203,20 +203,14 @@ begin
 				counter_decoding := 0; 
 				counter := counter + 1;
 				if counter = 8 then
-					control := fetch_instruction(counter);
-					incontrol <= control(7 downto 0);
-					scontrol <= control(10 downto 8);
-					outcontrol <= control(12 downto 11);
-					rcontrol <= control(16 downto 13);
 					next_state <= decoding;
 					data_ir := data;
-				elsif counter > 0 then
-					control := fetch_instruction(counter);
-					incontrol <= control(7 downto 0);
-					scontrol <= control(10 downto 8);
-					outcontrol <= control(12 downto 11);
-					rcontrol <= control(16 downto 13);
 				end if;
+				control := fetch_instruction(counter);
+				incontrol <= control(7 downto 0);
+				scontrol <= control(10 downto 8);
+				outcontrol <= control(12 downto 11);
+				rcontrol <= control(16 downto 13);
 			when decoding =>
 				counter := 0; 
 				counter_decoding := counter_decoding + 1;				
@@ -225,114 +219,47 @@ begin
 				case data_ir(15 downto 12) is
 					when "0000" =>
 						if counter_decoding = 3 then
-							control := storage(counter_decoding);
-							incontrol <= control(7 downto 0);
-							scontrol <= control(10 downto 8);
-							outcontrol <= control(12 downto 11);
-							rcontrol <= control(16 downto 13);
 							next_state <= fetch;
-						elsif counter_decoding > 0 then
-							control := storage(counter_decoding);
-							incontrol <= control(7 downto 0);
-							scontrol <= control(10 downto 8);
-							outcontrol <= control(12 downto 11);
-							rcontrol <= control(16 downto 13);
 						end if;
+							control := storage(counter_decoding);
 					when "0001" =>
 						if data_ir(11 downto 6) = "111110" and data_ir(5 downto 0) = "111101" then
 							if counter_decoding = 2 then
-								control := move_rb_ra(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 								next_state <= fetch;
-							elsif counter_decoding > 0 then
-								control := move_rb_ra(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 							end if;
+								control := move_rb_ra(counter_decoding);
 						elsif data_ir(11 downto 6) = "111101" and data_ir(5 downto 0) = "111110" then
 							if counter_decoding = 2 then
-								control := move_ra_rb(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 								next_state <= fetch;
-							elsif counter_decoding > 0 then
-								control := move_ra_rb(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 							end if;
+								control := move_ra_rb(counter_decoding);
 						elsif data_ir(5 downto 0) = "111101" then
 							if counter_decoding = 3 then
-								control := move_ram_ra(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 								next_state <= fetch;
-							elsif counter_decoding > 0 then
-								control := move_ram_ra(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 							end if;
+								control := move_ram_ra(counter_decoding);
 						elsif data_ir(5 downto 0) = "111110" then
 							if counter_decoding = 3 then
-								control := move_ram_rb(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 								next_state <= fetch;
-							elsif counter_decoding > 0 then
-								control := move_ram_rb(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 							end if;
+								control := move_ram_rb(counter_decoding);
 						elsif data_ir(11 downto 6) = "111101" then
 							if counter_decoding = 3 then
-								control := move_ra_ram(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 								next_state <= fetch;
-							elsif counter_decoding > 0 then
-								control := move_ra_ram(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 							end if;
+								control := move_ra_ram(counter_decoding);
 						elsif data_ir(11 downto 6) = "111110" then
 							if counter_decoding = 3 then
-								control := move_rb_ram(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 								next_state <= fetch;
-							elsif counter_decoding > 0 then
-								control := move_rb_ram(counter_decoding);
-								incontrol <= control(7 downto 0);
-								scontrol <= control(10 downto 8);
-								outcontrol <= control(12 downto 11);
-								rcontrol <= control(16 downto 13);
 							end if;
+								control := move_rb_ram(counter_decoding);
 						end if;
-						
 					when others =>
 				end case;
+								incontrol <= control(7 downto 0);
+								scontrol <= control(10 downto 8);
+								outcontrol <= control(12 downto 11);
+								rcontrol <= control(16 downto 13);
 		end case;
 		
 		present_state <= next_state;
