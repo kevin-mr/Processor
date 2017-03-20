@@ -63,7 +63,7 @@ architecture Behavioral of Main is
 				 data: in STD_LOGIC_VECTOR (15 downto 0);
 				 operando_1: out  STD_LOGIC_VECTOR (5 downto 0);
 				 operando_2: out  STD_LOGIC_VECTOR (5 downto 0);
-				 scontrol: out  STD_LOGIC_VECTOR (1 downto 0);
+				 scontrol: out  STD_LOGIC_VECTOR (2 downto 0);
              incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
              outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
 	end component;
@@ -84,7 +84,7 @@ architecture Behavioral of Main is
              output : out  STD_LOGIC_VECTOR (15 downto 0));
 	end component;
 	
-	signal scontrol: STD_LOGIC_VECTOR (1 downto 0);
+	signal scontrol: STD_LOGIC_VECTOR (2 downto 0);
 	signal incontrol: STD_LOGIC_VECTOR (7 downto 0);
 	signal outcontrol: STD_LOGIC_VECTOR (1 downto 0);
 	signal operando_1: STD_LOGIC_VECTOR (5 downto 0);
@@ -135,7 +135,7 @@ G6: RAM Port Map(
 		input => data_bus,
 		output => data_ram);
 		
-process(incontrol,outcontrol,data_pc,data_mar,data_mbr,data_ir,data_ram)
+process(incontrol,outcontrol,scontrol,data_pc,data_mar,data_mbr,data_ir,data_ram,operando_1,operando_2)
 	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
 begin
 	if incontrol(1) = '1' then 
@@ -146,19 +146,21 @@ begin
 		edata := data_ir;
 	elsif outcontrol(1) = '1' then
 		edata := data_ram;
-	elsif scontrol(0) = '1' then
+	elsif scontrol(2) = '1' then
 		edata := "0000000000" & operando_2;
 	end if;
 	data_bus <= edata;
 end process;
 
-process(incontrol,address)
+process(incontrol,scontrol,address,data_mar,operando_1,operando_2)
 	variable eaddress: STD_LOGIC_VECTOR (5 downto 0):= "000000";
 begin
 	if incontrol(3) = '1' then 
 		eaddress := data_mar(5 downto 0);
 	elsif scontrol(1) = '1' then
 		eaddress := operando_1;
+	elsif scontrol(0) = '1' then
+		eaddress := operando_2;
 	end if;
 	address_bus <= eaddress;
 end process;

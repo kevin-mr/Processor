@@ -105,8 +105,9 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" in Library work.
+Entity <unitcontrol> compiled.
 WARNING:HDLParsers:3534 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" Line 90. In the function storage, not all control paths contain a return statement.
-Architecture behavioral of Entity unitcontrol is up to date.
+Entity <unitcontrol> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" in Library work.
 Architecture behavioral of Entity pc is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" in Library work.
@@ -146,7 +147,7 @@ Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
 WARNING:Xst:819 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" line 138: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <scontrol>, <operando_2>
 WARNING:Xst:819 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" line 155: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <data_mar>, <scontrol>, <operando_1>
+   <data_mar>, <scontrol>, <operando_1>, <operando_2>
 Entity <Main> analyzed. Unit <Main> generated.
 
 Analyzing Entity <UnitControl> in library <work> (Architecture <behavioral>).
@@ -181,9 +182,9 @@ Synthesizing Unit <UnitControl>.
     Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
 WARNING:Xst:1305 - Output <operando_1> is never assigned. Tied to value 000000.
 WARNING:Xst:1305 - Output <operando_2> is never assigned. Tied to value 000000.
-WARNING:Xst:647 - Input <data<11:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 16x12-bit ROM for signal <control$mux0001>.
-    Found 2-bit register for signal <scontrol>.
+WARNING:Xst:647 - Input <data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16x13-bit ROM for signal <control$mux0001>.
+    Found 3-bit register for signal <scontrol>.
     Found 2-bit register for signal <outcontrol>.
     Found 8-bit register for signal <incontrol>.
     Found 32-bit adder for signal <control$add0000> created at line 101.
@@ -195,7 +196,7 @@ WARNING:Xst:647 - Input <data<11:0>> is never used. This port will be preserved 
     Summary:
 	inferred   1 ROM(s).
 	inferred   1 Counter(s).
-	inferred  14 D-type flip-flop(s).
+	inferred  15 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 Unit <UnitControl> synthesized.
@@ -264,7 +265,7 @@ HDL Synthesis Report
 
 Macro Statistics
 # ROMs                                                 : 1
- 16x12-bit ROM                                         : 1
+ 16x13-bit ROM                                         : 1
 # Adders/Subtractors                                   : 2
  16-bit adder                                          : 1
  32-bit adder                                          : 1
@@ -273,7 +274,8 @@ Macro Statistics
 # Registers                                            : 73
  1-bit register                                        : 2
  16-bit register                                       : 68
- 2-bit register                                        : 2
+ 2-bit register                                        : 1
+ 3-bit register                                        : 1
  8-bit register                                        : 1
 # Latches                                              : 2
  16-bit latch                                          : 1
@@ -309,14 +311,14 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # ROMs                                                 : 1
- 16x12-bit ROM                                         : 1
+ 16x13-bit ROM                                         : 1
 # Adders/Subtractors                                   : 2
  16-bit adder                                          : 1
  32-bit adder                                          : 1
 # Counters                                             : 1
  32-bit up counter                                     : 1
-# Registers                                            : 1102
- Flip-Flops                                            : 1102
+# Registers                                            : 1103
+ Flip-Flops                                            : 1103
 # Latches                                              : 2
  16-bit latch                                          : 1
  6-bit latch                                           : 1
@@ -334,9 +336,11 @@ Macro Statistics
 =========================================================================
 WARNING:Xst:1426 - The value init of the FF/Latch next_state_0 hinder the constant cleaning in the block UnitControl.
    You should achieve better results by setting this init to 1.
-WARNING:Xst:1710 - FF/Latch <scontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <outcontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <scontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <scontrol_1> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <scontrol_2> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <outcontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <outcontrol_1> 
 
 Optimizing unit <Main> ...
 
@@ -413,9 +417,8 @@ WARNING:Xst:2677 - Node <G1/incontrol_3> of sequential type is unconnected in bl
 WARNING:Xst:2677 - Node <G1/incontrol_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/present_state_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/scontrol_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/next_state_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/outcontrol_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/outcontrol_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_13> of sequential type is unconnected in block <Main>.
@@ -1593,14 +1596,14 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 
 
-Total REAL time to Xst completion: 20.00 secs
-Total CPU time to Xst completion: 19.06 secs
+Total REAL time to Xst completion: 23.00 secs
+Total CPU time to Xst completion: 22.16 secs
  
 --> 
 
-Total memory usage is 292168 kilobytes
+Total memory usage is 292112 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1176 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings : 1178 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

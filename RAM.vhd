@@ -50,6 +50,7 @@ begin
 
 if clock'event and clock = '1' then
 	ram(30) := X"0FFF";
+	ram(31) := X"0FF1";
 	if control = "10" then	
 		data := ram(to_integer(unsigned(address)));
 	elsif control = "01" then

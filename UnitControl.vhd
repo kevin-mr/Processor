@@ -34,58 +34,59 @@ entity UnitControl is
 			  data: in STD_LOGIC_VECTOR (15 downto 0);
 			  operando_1: out  STD_LOGIC_VECTOR (5 downto 0);
 			  operando_2: out  STD_LOGIC_VECTOR (5 downto 0);
-			  scontrol: out  STD_LOGIC_VECTOR (1 downto 0);
+			  scontrol: out  STD_LOGIC_VECTOR (2 downto 0);
            incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
            outcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
 end UnitControl;
 
 architecture Behavioral of UnitControl is	
 	function fetch_instruction (state: integer) return STD_LOGIC_VECTOR is
-		variable control: STD_LOGIC_VECTOR (11 downto 0) := "000000000000";
+		variable control: STD_LOGIC_VECTOR (12 downto 0) := "0000000000000";
 	begin
 		case state is
 			when 1 =>
-					control := "000000000010";
+					control := "0000000000010";
 					return control;
 			when 2 =>
-					control := "000000000100";
+					control := "0000000000100";
 					return control;
 			when 3 =>
-					control := "000000001000";
+					control := "0000000001000";
 					return control;
 			when 4 =>
-					control := "100000000000";
+					control := "1000000000000";
 					return control;
 			when 5 =>
-					control := "000000010000";
+					control := "0000000010000";
 					return control;
 			when 6 =>
-					control := "000000100000";
+					control := "0000000100000";
 					return control;
 			when 7 =>
-					control := "000001000000";
+					control := "0000001000000";
 					return control;
 			when 8 =>
-					control := "000010000000";
+					control := "0000010000000";
 					return control;
 			when others =>
 					return control;
 		end case;
 	end fetch_instruction;
 	function storage (state: integer) return STD_LOGIC_VECTOR is
-		variable control: STD_LOGIC_VECTOR (11 downto 0) := "000000000000";
+		variable control: STD_LOGIC_VECTOR (12 downto 0) := "0000000000000";
 	begin
 		case state is
 			when 1 =>
-				control := "001000000000";
+				control := "0010000000000";
 				return control;
 			when 2 =>
-				control := "000100001000";
+				control := "0001000000000";
 				return control;
 			when 3 =>
-				control := "000000000000";
+				control := "0100000000000";
 				return control;
 			when others =>
+				return control;
 		end case;
 	end storage;
 	type states is (fetch,
@@ -94,43 +95,50 @@ architecture Behavioral of UnitControl is
 begin
 
 process(clock)
-	variable control: STD_LOGIC_VECTOR (11 downto 0);
+	variable data_ir: STD_LOGIC_VECTOR (15 downto 0);
+	variable control: STD_LOGIC_VECTOR (12 downto 0);
 	variable counter: integer := 0;
+	variable counter_decoding: integer := 0;
 begin
 	if clock'event and clock = '1' then
-		counter := counter + 1;
-		
 		case present_state is
 			when fetch =>
+				counter_decoding := 0; 
+				counter := counter + 1;
 				if counter = 8 then
 					control := fetch_instruction(counter);
 					incontrol <= control(7 downto 0);
-					outcontrol <= control(11 downto 10);
-					scontrol <= control(9 downto 8);
+					outcontrol <= control(12 downto 11);
+					scontrol <= control(10 downto 8);
 					next_state <= decoding;
+					data_ir := data;
 				elsif counter > 0 then
 					control := fetch_instruction(counter);
 					incontrol <= control(7 downto 0);
-					outcontrol <= control(11 downto 10);
-					scontrol <= control(9 downto 8);
+					outcontrol <= control(12 downto 11);
+					scontrol <= control(10 downto 8);
 				end if;
 			when decoding =>
-				counter := 0;
-				incontrol <= X"00";
-				case data(15 downto 12) is
+				counter := 0; 
+				counter_decoding := counter_decoding + 1;
+				case data_ir(15 downto 12) is
 					when "0000" =>
-						if counter = 8 then
-							control := storage(counter);
+						if counter_decoding = 3 then
+							control := storage(counter_decoding);
 							incontrol <= control(7 downto 0);
-							outcontrol <= control(11 downto 10);
-							scontrol <= control(9 downto 8);
-							next_state <= decoding;
-						elsif counter > 0 then
-							control := storage(counter);
+							outcontrol <= control(12 downto 11);
+							scontrol <= control(10 downto 8);
+							operando_1 <= data_ir(11 downto 6);
+							operando_2 <= data_ir(5 downto 0);
+							next_state <= fetch;
+						elsif counter_decoding > 0 then
+							control := storage(counter_decoding);
 							incontrol <= control(7 downto 0);
-							outcontrol <= control(11 downto 10);
-							scontrol <= control(9 downto 8);
-					end if;
+							outcontrol <= control(12 downto 11);
+							scontrol <= control(10 downto 8);
+							operando_1 <= data_ir(11 downto 6);
+							operando_2 <= data_ir(5 downto 0);
+						end if;
 					when others =>
 				end case;
 		end case;
