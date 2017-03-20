@@ -121,8 +121,7 @@ Entity <ram> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RA.vhd" in Library work.
 Architecture behavioral of Entity ra is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RB.vhd" in Library work.
-Entity <rb> compiled.
-Entity <rb> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity rb is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" in Library work.
 Architecture behavioral of Entity main is up to date.
 
@@ -172,9 +171,9 @@ Analyzing Entity <IR> in library <work> (Architecture <behavioral>).
 Entity <IR> analyzed. Unit <IR> generated.
 
 Analyzing Entity <RAM> in library <work> (Architecture <behavioral>).
-WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 55: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 57: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 60: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 59: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 61: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" line 64: Index value(s) does not match array range, simulation mismatch.
 Entity <RAM> analyzed. Unit <RAM> generated.
 
 Analyzing Entity <RA> in library <work> (Architecture <behavioral>).
@@ -192,28 +191,26 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <UnitControl>.
     Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
-    Found 16x17-bit ROM for signal <control$mux0007>.
+    Found 16x17-bit ROM for signal <control$mux0013>.
     Found 6-bit register for signal <operando_1>.
     Found 6-bit register for signal <operando_2>.
     Found 3-bit register for signal <scontrol>.
     Found 4-bit register for signal <rcontrol>.
     Found 2-bit register for signal <outcontrol>.
     Found 8-bit register for signal <incontrol>.
-    Found 32-bit adder for signal <control$add0000> created at line 196.
-    Found 32-bit adder for signal <control$add0001> created at line 214.
+    Found 17-bit register for signal <control>.
+    Found 32-bit adder for signal <control$add0000> created at line 221.
+    Found 32-bit adder for signal <control$add0001> created at line 233.
     Found 32-bit up counter for signal <counter>.
     Found 32-bit up counter for signal <counter_decoding>.
     Found 16-bit register for signal <data_ir>.
     Found 1-bit register for signal <next_state<0>>.
     Found 1-bit register for signal <present_state<0>>.
-    Found 32-bit comparator greater for signal <rcontrol$cmp_gt0000> created at line 204.
-    Found 32-bit comparator greater for signal <rcontrol$cmp_gt0001> created at line 241.
     Summary:
 	inferred   1 ROM(s).
 	inferred   2 Counter(s).
-	inferred  47 D-type flip-flop(s).
+	inferred  64 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
-	inferred   2 Comparator(s).
 Unit <UnitControl> synthesized.
 
 
@@ -260,10 +257,14 @@ WARNING:Xst:1780 - Signal <ram<64>> is never used or assigned. This unconnected 
     Found 1024-bit register for signal <ram<63:0>>.
     Found 16-bit 4-to-1 multiplexer for signal <ram_30$mux0003>.
     Found 16-bit 4-to-1 multiplexer for signal <ram_31$mux0003>.
+    Found 16-bit 4-to-1 multiplexer for signal <ram_32$mux0003>.
+    Found 16-bit 4-to-1 multiplexer for signal <ram_33$mux0003>.
+    Found 16-bit 4-to-1 multiplexer for signal <ram_34$mux0003>.
+    Found 16-bit 4-to-1 multiplexer for signal <ram_35$mux0003>.
 INFO:Xst:738 - HDL ADVISOR - 1024 flip-flops were inferred for signal <ram>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
     Summary:
 	inferred 1024 D-type flip-flop(s).
-	inferred  48 Multiplexer(s).
+	inferred 112 Multiplexer(s).
 Unit <RAM> synthesized.
 
 
@@ -303,9 +304,10 @@ Macro Statistics
  32-bit adder                                          : 2
 # Counters                                             : 2
  32-bit up counter                                     : 2
-# Registers                                            : 79
+# Registers                                            : 80
  1-bit register                                        : 2
  16-bit register                                       : 71
+ 17-bit register                                       : 1
  2-bit register                                        : 1
  3-bit register                                        : 1
  4-bit register                                        : 1
@@ -314,10 +316,8 @@ Macro Statistics
 # Latches                                              : 2
  16-bit latch                                          : 1
  6-bit latch                                           : 1
-# Comparators                                          : 2
- 32-bit comparator greater                             : 2
-# Multiplexers                                         : 4
- 16-bit 4-to-1 multiplexer                             : 3
+# Multiplexers                                         : 8
+ 16-bit 4-to-1 multiplexer                             : 7
  16-bit 64-to-1 multiplexer                            : 1
 
 =========================================================================
@@ -354,15 +354,13 @@ Macro Statistics
  32-bit adder                                          : 2
 # Counters                                             : 2
  32-bit up counter                                     : 2
-# Registers                                            : 1167
- Flip-Flops                                            : 1167
+# Registers                                            : 1184
+ Flip-Flops                                            : 1184
 # Latches                                              : 2
  16-bit latch                                          : 1
  6-bit latch                                           : 1
-# Comparators                                          : 2
- 32-bit comparator greater                             : 2
-# Multiplexers                                         : 4
- 16-bit 4-to-1 multiplexer                             : 3
+# Multiplexers                                         : 8
+ 16-bit 4-to-1 multiplexer                             : 7
  16-bit 64-to-1 multiplexer                            : 1
 
 =========================================================================
@@ -370,11 +368,29 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <incontrol_4> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_4> 
+INFO:Xst:2261 - The FF/Latch <incontrol_5> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_5> 
+INFO:Xst:2261 - The FF/Latch <incontrol_6> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_6> 
+INFO:Xst:2261 - The FF/Latch <incontrol_7> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_7> 
+INFO:Xst:2261 - The FF/Latch <control_8> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <scontrol_0> 
+INFO:Xst:2261 - The FF/Latch <control_9> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <scontrol_1> 
+INFO:Xst:2261 - The FF/Latch <control_10> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <scontrol_2> 
+INFO:Xst:2261 - The FF/Latch <outcontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_11> 
+INFO:Xst:2261 - The FF/Latch <outcontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_12> 
+INFO:Xst:2261 - The FF/Latch <rcontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_13> 
+INFO:Xst:2261 - The FF/Latch <rcontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_14> 
+INFO:Xst:2261 - The FF/Latch <rcontrol_2> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_15> 
+INFO:Xst:2261 - The FF/Latch <rcontrol_3> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_16> 
+INFO:Xst:2261 - The FF/Latch <incontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_0> 
+INFO:Xst:2261 - The FF/Latch <incontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_1> 
+INFO:Xst:2261 - The FF/Latch <incontrol_2> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_2> 
+INFO:Xst:2261 - The FF/Latch <incontrol_3> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_3> 
 
 Optimizing unit <Main> ...
 
 Optimizing unit <UnitControl> ...
+WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <PC> ...
 
@@ -488,9 +504,9 @@ WARNING:Xst:2677 - Node <G1/operando_1_2> of sequential type is unconnected in b
 WARNING:Xst:2677 - Node <G1/operando_1_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/operando_1_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/present_state_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/scontrol_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/scontrol_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/scontrol_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_8> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/next_state_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/data_ir_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/data_ir_14> of sequential type is unconnected in block <Main>.
@@ -585,6 +601,54 @@ WARNING:Xst:2677 - Node <G5/registro_3> of sequential type is unconnected in blo
 WARNING:Xst:2677 - Node <G5/registro_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G5/registro_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G5/registro_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_33_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_32_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_31_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_31_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_31_13> of sequential type is unconnected in block <Main>.
@@ -617,22 +681,22 @@ WARNING:Xst:2677 - Node <G6/ram_30_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_30_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_30_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_30_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_29_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_35_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_3_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_3_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_3_13> of sequential type is unconnected in block <Main>.
@@ -649,38 +713,22 @@ WARNING:Xst:2677 - Node <G6/ram_3_3> of sequential type is unconnected in block 
 WARNING:Xst:2677 - Node <G6/ram_3_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_3_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_3_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_28_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_29_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_13> of sequential type is unconnected in block <Main>.
@@ -697,38 +745,22 @@ WARNING:Xst:2677 - Node <G6/ram_2_3> of sequential type is unconnected in block 
 WARNING:Xst:2677 - Node <G6/ram_2_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_33_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_27_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_28_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_1_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_1_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_1_13> of sequential type is unconnected in block <Main>.
@@ -745,22 +777,22 @@ WARNING:Xst:2677 - Node <G6/ram_1_3> of sequential type is unconnected in block 
 WARNING:Xst:2677 - Node <G6/ram_1_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_1_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_1_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_32_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_27_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_0_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_0_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_0_13> of sequential type is unconnected in block <Main>.
@@ -841,22 +873,6 @@ WARNING:Xst:2677 - Node <G6/ram_24_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_24_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_24_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_24_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_18_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_23_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_23_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_23_13> of sequential type is unconnected in block <Main>.
@@ -889,6 +905,22 @@ WARNING:Xst:2677 - Node <G6/ram_17_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_17_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_17_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_17_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_18_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_22_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_22_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_22_13> of sequential type is unconnected in block <Main>.
@@ -985,22 +1017,6 @@ WARNING:Xst:2677 - Node <G6/ram_14_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_14_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_14_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_14_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_13_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_12_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_12_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_12_13> of sequential type is unconnected in block <Main>.
@@ -1017,6 +1033,38 @@ WARNING:Xst:2677 - Node <G6/ram_12_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_12_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_12_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_12_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_11_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_13_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_10_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_10_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_10_13> of sequential type is unconnected in block <Main>.
@@ -1049,22 +1097,6 @@ WARNING:Xst:2677 - Node <G6/ram_59_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_59_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_59_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_59_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_11_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_58_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_58_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_58_13> of sequential type is unconnected in block <Main>.
@@ -1129,22 +1161,6 @@ WARNING:Xst:2677 - Node <G6/ram_62_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_62_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_62_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_62_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_56_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_61_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_61_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_61_13> of sequential type is unconnected in block <Main>.
@@ -1177,6 +1193,22 @@ WARNING:Xst:2677 - Node <G6/ram_55_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_55_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_55_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_55_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_56_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_60_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_60_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_60_13> of sequential type is unconnected in block <Main>.
@@ -1273,54 +1305,6 @@ WARNING:Xst:2677 - Node <G6/ram_47_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_47_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_47_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_47_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_52_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_51_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_45_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_46_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_46_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_46_13> of sequential type is unconnected in block <Main>.
@@ -1337,6 +1321,54 @@ WARNING:Xst:2677 - Node <G6/ram_46_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_46_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_46_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_46_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_51_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_52_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_45_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_9_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_9_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_9_13> of sequential type is unconnected in block <Main>.
@@ -1417,22 +1449,6 @@ WARNING:Xst:2677 - Node <G6/ram_44_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_44_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_44_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_44_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_38_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_7_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_7_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_7_13> of sequential type is unconnected in block <Main>.
@@ -1465,6 +1481,22 @@ WARNING:Xst:2677 - Node <G6/ram_43_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_43_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_43_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_43_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_38_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_37_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_37_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_37_13> of sequential type is unconnected in block <Main>.
@@ -1561,22 +1593,6 @@ WARNING:Xst:2677 - Node <G6/ram_41_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_41_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_41_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_41_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_4_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_40_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_40_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_40_13> of sequential type is unconnected in block <Main>.
@@ -1593,22 +1609,22 @@ WARNING:Xst:2677 - Node <G6/ram_40_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_40_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_40_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_40_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_35_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_4_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G7/registro_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G7/registro_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G7/registro_13> of sequential type is unconnected in block <Main>.
@@ -1730,14 +1746,14 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 
 
-Total REAL time to Xst completion: 19.00 secs
-Total CPU time to Xst completion: 18.90 secs
+Total REAL time to Xst completion: 25.00 secs
+Total CPU time to Xst completion: 25.03 secs
  
 --> 
 
-Total memory usage is 293200 kilobytes
+Total memory usage is 293184 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1270 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings : 1271 (   0 filtered)
+Number of infos    :   18 (   0 filtered)
 

@@ -19,7 +19,6 @@ Total CPU time to Xst completion: 0.23 secs
 =========================================================================
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" in Library work.
 Entity <unitcontrol> compiled.
-WARNING:HDLParsers:3534 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" Line 90. In the function storage, not all control paths contain a return statement.
 Entity <unitcontrol> (Architecture <behavioral>) compiled.
 
 
@@ -28,9 +27,9 @@ Total CPU time to Xst completion: 0.30 secs
  
 --> 
 
-Total memory usage is 215072 kilobytes
+Total memory usage is 215068 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
