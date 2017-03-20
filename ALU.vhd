@@ -56,6 +56,8 @@ if clock'event and clock = '1' then
 			TC := STD_LOGIC_VECTOR(UNSIGNED(TA) + UNSIGNED(TB));
 		when "100" =>
 			TC := TA and TB;
+		when "101" =>
+			TC := "0000000000" & not TA(5 downto 0);
 		when others =>
 	end case;
 	if control(3) = '1' then
