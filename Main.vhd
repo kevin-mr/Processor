@@ -106,6 +106,18 @@ architecture Behavioral of Main is
              inputTB : in  STD_LOGIC_VECTOR (15 downto 0);
              output : out  STD_LOGIC_VECTOR (15 downto 0));
 	end component;
+	component PR is
+		Port ( clock : in  STD_LOGIC;
+             control : in  STD_LOGIC_VECTOR (1 downto 0);
+             input : in  STD_LOGIC_VECTOR (15 downto 0);
+             output : out  STD_LOGIC_VECTOR (15 downto 0));
+	end component;
+	component RC is
+		Port ( clock : in  STD_LOGIC;
+             control : in  STD_LOGIC_VECTOR (1 downto 0);
+             input : in  STD_LOGIC_VECTOR (15 downto 0);
+             output : out  STD_LOGIC_VECTOR (15 downto 0));
+	end component;
 	
 	signal pcontrol: STD_LOGIC_VECTOR (1 downto 0);
 	signal ccontrol: STD_LOGIC_VECTOR (1 downto 0);
@@ -124,6 +136,8 @@ architecture Behavioral of Main is
 	signal data_rb: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_ram: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_alu: STD_LOGIC_VECTOR (15 downto 0);
+	signal data_pr: STD_LOGIC_VECTOR (15 downto 0);
+	signal data_rc: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_bus: STD_LOGIC_VECTOR (15 downto 0);
 	signal address: STD_LOGIC_VECTOR (5 downto 0);
 	signal address_bus: STD_LOGIC_VECTOR (5 downto 0);
@@ -184,8 +198,18 @@ G9: ALU Port Map(
 		inputTA => data_bus,
 		inputTB => data_bus,
 		output => data_alu);
+G10: PR Port Map(
+		clock => clock,
+		control => pcontrol,
+		input => data_bus,
+		output => data_pr);
+G11: RC Port Map(
+		clock => clock,
+		control => ccontrol,
+		input => data_bus,
+		output => data_rc);
 		
-process(incontrol,outcontrol,scontrol,acontrol,data_pc,data_mar,data_mbr,data_ir,data_ram,operando_1,operando_2,data_ra,data_rb,data_alu)
+process(incontrol,outcontrol,scontrol,acontrol,ccontrol,pcontrol,data_pc,data_mar,data_mbr,data_ir,data_ram,operando_1,operando_2,data_ra,data_rb,data_alu,data_pr,data_rc)
 	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
 begin
 	if incontrol(1) = '1' then 
@@ -205,9 +229,9 @@ begin
 	elsif acontrol(3) = '1' then
 		edata := data_alu;
 	elsif ccontrol(1) = '1' then
-	
+		edata := data_rc;
 	elsif pcontrol(1) = '1' then
-	
+		edata := data_pr;
 	end if;
 	data_bus <= edata;
 end process;

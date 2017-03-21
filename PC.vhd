@@ -51,6 +51,8 @@ begin
 			when "10" =>
 				registro := STD_LOGIC_VECTOR(UNSIGNED(registro) + 1);
 				output <= registro;
+			when "11" =>
+				output <= registro;
 			when others =>
 		end case;
 	end if;

@@ -4,10 +4,11 @@ Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" into library work
-WARNING:HDLCompiler:443 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" Line 203: Function move_ram_rb does not always return a value.
+Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RC.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RB.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RA.vhd" into library work
+Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PR.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd" into library work
 Parsing VHDL file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" into library work
@@ -29,11 +30,13 @@ Compiling architecture behavioral of entity RAM [ram_default]
 Compiling architecture behavioral of entity RA [ra_default]
 Compiling architecture behavioral of entity RB [rb_default]
 Compiling architecture behavioral of entity ALU [alu_default]
+Compiling architecture behavioral of entity PR [pr_default]
+Compiling architecture behavioral of entity RC [rc_default]
 Compiling architecture behavioral of entity Main [main_default]
 Compiling architecture behavior of entity maintest
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 24 VHDL Units
+Compiled 28 VHDL Units
 Built simulation executable C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Maintest_isim_beh.exe
-Fuse Memory Usage: 34736 KB
-Fuse CPU Usage: 1484 ms
+Fuse Memory Usage: 35060 KB
+Fuse CPU Usage: 1655 ms

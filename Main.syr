@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.24 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.23 secs
+Total CPU time to Xst completion: 0.24 secs
  
 --> Reading design: Main.prj
 
@@ -105,8 +105,7 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" in Library work.
-Entity <unitcontrol> compiled.
-Entity <unitcontrol> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity unitcontrol is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" in Library work.
 Architecture behavioral of Entity pc is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" in Library work.
@@ -116,16 +115,21 @@ Architecture behavioral of Entity mbr is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/IR.vhd" in Library work.
 Architecture behavioral of Entity ir is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" in Library work.
-Entity <ram> compiled.
-Entity <ram> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity ram is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RA.vhd" in Library work.
 Architecture behavioral of Entity ra is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RB.vhd" in Library work.
 Architecture behavioral of Entity rb is up to date.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/ALU.vhd" in Library work.
 Architecture behavioral of Entity alu is up to date.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PR.vhd" in Library work.
+Architecture behavioral of Entity pr is up to date.
+Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RC.vhd" in Library work.
+Entity <rc> compiled.
+Entity <rc> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" in Library work.
-Architecture behavioral of Entity main is up to date.
+Entity <main> compiled.
+Entity <main> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -150,13 +154,17 @@ Analyzing hierarchy for entity <RB> in library <work> (architecture <behavioral>
 
 Analyzing hierarchy for entity <ALU> in library <work> (architecture <behavioral>).
 
+Analyzing hierarchy for entity <PR> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <RC> in library <work> (architecture <behavioral>).
+
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
-WARNING:Xst:819 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" line 182: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <rcontrol>, <acontrol>, <data_alu>
+WARNING:Xst:819 - "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" line 212: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <rcontrol>
 Entity <Main> analyzed. Unit <Main> generated.
 
 Analyzing Entity <UnitControl> in library <work> (Architecture <behavioral>).
@@ -189,6 +197,12 @@ Entity <RB> analyzed. Unit <RB> generated.
 Analyzing Entity <ALU> in library <work> (Architecture <behavioral>).
 Entity <ALU> analyzed. Unit <ALU> generated.
 
+Analyzing Entity <PR> in library <work> (Architecture <behavioral>).
+Entity <PR> analyzed. Unit <PR> generated.
+
+Analyzing Entity <RC> in library <work> (Architecture <behavioral>).
+Entity <RC> analyzed. Unit <RC> generated.
+
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -198,26 +212,26 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <UnitControl>.
     Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd".
-    Found 16x21-bit ROM for signal <control$mux0013>.
     Found 6-bit register for signal <operando_1>.
     Found 6-bit register for signal <operando_2>.
     Found 3-bit register for signal <scontrol>.
     Found 4-bit register for signal <rcontrol>.
+    Found 2-bit register for signal <ccontrol>.
     Found 2-bit register for signal <outcontrol>.
     Found 8-bit register for signal <incontrol>.
+    Found 2-bit register for signal <pcontrol>.
     Found 4-bit register for signal <acontrol>.
-    Found 21-bit register for signal <control>.
-    Found 32-bit adder for signal <control$add0000> created at line 298.
-    Found 32-bit adder for signal <control$add0001> created at line 311.
+    Found 25-bit register for signal <control>.
     Found 32-bit up counter for signal <counter>.
     Found 32-bit up counter for signal <counter_decoding>.
     Found 16-bit register for signal <data_ir>.
     Found 1-bit register for signal <next_state<0>>.
     Found 1-bit register for signal <present_state<0>>.
+    Found 32-bit adder for signal <vincontrol$add0000> created at line 724.
+    Found 32-bit adder for signal <vrcontrol1$add0000> created at line 739.
     Summary:
-	inferred   1 ROM(s).
 	inferred   2 Counter(s).
-	inferred  72 D-type flip-flop(s).
+	inferred  80 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
 Unit <UnitControl> synthesized.
 
@@ -267,11 +281,10 @@ WARNING:Xst:1780 - Signal <ram<64>> is never used or assigned. This unconnected 
     Found 16-bit 4-to-1 multiplexer for signal <ram_31$mux0003>.
     Found 16-bit 4-to-1 multiplexer for signal <ram_32$mux0003>.
     Found 16-bit 4-to-1 multiplexer for signal <ram_33$mux0003>.
-    Found 16-bit 4-to-1 multiplexer for signal <ram_34$mux0003>.
 INFO:Xst:738 - HDL ADVISOR - 1024 flip-flops were inferred for signal <ram>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
     Summary:
 	inferred 1024 D-type flip-flop(s).
-	inferred  96 Multiplexer(s).
+	inferred  80 Multiplexer(s).
 Unit <RAM> synthesized.
 
 
@@ -297,11 +310,46 @@ WARNING:Xst:647 - Input <control<3>> is never used. This port will be preserved 
     Found 16-bit register for signal <TA>.
     Found 16-bit register for signal <TB>.
     Found 16-bit register for signal <TC>.
-    Found 16-bit adder for signal <TC$add0000> created at line 56.
+    Found 16-bit addsub for signal <TC$addsub0000>.
+    Found 16-bit comparator equal for signal <TC$cmp_eq0005> created at line 64.
     Summary:
 	inferred  48 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
 Unit <ALU> synthesized.
+
+
+Synthesizing Unit <PR>.
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PR.vhd".
+    Found 16-bit register for signal <registro>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <PR> synthesized.
+
+
+Synthesizing Unit <RC>.
+    Related source file is "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RC.vhd".
+    Found 4x1-bit ROM for signal <registro_11$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_12$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_13$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_14$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_15$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_0$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_1$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_2$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_3$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_4$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_5$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_6$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_7$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_8$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_9$mux0000> created at line 43.
+    Found 4x1-bit ROM for signal <registro_10$mux0000> created at line 43.
+    Found 16-bit register for signal <registro>.
+    Summary:
+	inferred  16 ROM(s).
+	inferred  16 D-type flip-flop(s).
+Unit <RC> synthesized.
 
 
 Synthesizing Unit <Main>.
@@ -312,23 +360,25 @@ WARNING:Xst:737 - Found 6-bit latch for signal <eaddress>. Latches may be genera
 WARNING:Xst:737 - Found 16-bit latch for signal <edata>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 Unit <Main> synthesized.
 
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 1
- 16x21-bit ROM                                         : 1
+# ROMs                                                 : 16
+ 4x1-bit ROM                                           : 16
 # Adders/Subtractors                                   : 4
- 16-bit adder                                          : 2
+ 16-bit adder                                          : 1
+ 16-bit addsub                                         : 1
  32-bit adder                                          : 2
 # Counters                                             : 2
  32-bit up counter                                     : 2
-# Registers                                            : 84
- 1-bit register                                        : 2
- 16-bit register                                       : 74
- 2-bit register                                        : 1
- 21-bit register                                       : 1
+# Registers                                            : 103
+ 1-bit register                                        : 18
+ 16-bit register                                       : 75
+ 2-bit register                                        : 3
+ 25-bit register                                       : 1
  3-bit register                                        : 1
  4-bit register                                        : 2
  6-bit register                                        : 2
@@ -336,8 +386,10 @@ Macro Statistics
 # Latches                                              : 2
  16-bit latch                                          : 1
  6-bit latch                                           : 1
-# Multiplexers                                         : 7
- 16-bit 4-to-1 multiplexer                             : 6
+# Comparators                                          : 1
+ 16-bit comparator equal                               : 1
+# Multiplexers                                         : 6
+ 16-bit 4-to-1 multiplexer                             : 5
  16-bit 64-to-1 multiplexer                            : 1
 
 =========================================================================
@@ -364,25 +416,51 @@ WARNING:Xst:1290 - Hierarchical block <G8> is unconnected in block <Main>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <G9> is unconnected in block <Main>.
    It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <G10> is unconnected in block <Main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <G11> is unconnected in block <Main>.
+   It will be removed from the design.
+
+Synthesizing (advanced) Unit <RC>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_11_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_12_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_13_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_14_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_15_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_0_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_1_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_2_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_3_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_4_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_5_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_6_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_7_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_8_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_9_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_registro_10_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <RC> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 1
- 16x21-bit ROM                                         : 1
+# ROMs                                                 : 16
+ 4x1-bit ROM                                           : 16
 # Adders/Subtractors                                   : 4
- 16-bit adder                                          : 2
+ 16-bit adder                                          : 1
+ 16-bit addsub                                         : 1
  32-bit adder                                          : 2
 # Counters                                             : 2
  32-bit up counter                                     : 2
-# Registers                                            : 1240
- Flip-Flops                                            : 1240
+# Registers                                            : 1280
+ Flip-Flops                                            : 1280
 # Latches                                              : 2
  16-bit latch                                          : 1
  6-bit latch                                           : 1
-# Multiplexers                                         : 7
- 16-bit 4-to-1 multiplexer                             : 6
+# Comparators                                          : 1
+ 16-bit comparator equal                               : 1
+# Multiplexers                                         : 6
+ 16-bit 4-to-1 multiplexer                             : 5
  16-bit 64-to-1 multiplexer                            : 1
 
 =========================================================================
@@ -390,35 +468,22 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <incontrol_4> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_4> 
-INFO:Xst:2261 - The FF/Latch <incontrol_5> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_5> 
-INFO:Xst:2261 - The FF/Latch <acontrol_3> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_20> 
-INFO:Xst:2261 - The FF/Latch <incontrol_6> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_6> 
-INFO:Xst:2261 - The FF/Latch <incontrol_7> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_7> 
-INFO:Xst:2261 - The FF/Latch <acontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_17> 
-INFO:Xst:2261 - The FF/Latch <control_8> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <scontrol_0> 
-INFO:Xst:2261 - The FF/Latch <acontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_18> 
-INFO:Xst:2261 - The FF/Latch <control_9> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <scontrol_1> 
-INFO:Xst:2261 - The FF/Latch <acontrol_2> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_19> 
-INFO:Xst:2261 - The FF/Latch <control_10> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <scontrol_2> 
 INFO:Xst:2261 - The FF/Latch <outcontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_11> 
-INFO:Xst:2261 - The FF/Latch <outcontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_12> 
-INFO:Xst:2261 - The FF/Latch <rcontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_13> 
-INFO:Xst:2261 - The FF/Latch <rcontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_14> 
-INFO:Xst:2261 - The FF/Latch <rcontrol_2> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_15> 
-INFO:Xst:2261 - The FF/Latch <rcontrol_3> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_16> 
 INFO:Xst:2261 - The FF/Latch <incontrol_0> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_0> 
+INFO:Xst:2261 - The FF/Latch <outcontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_12> 
 INFO:Xst:2261 - The FF/Latch <incontrol_1> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_1> 
 INFO:Xst:2261 - The FF/Latch <incontrol_2> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_2> 
 INFO:Xst:2261 - The FF/Latch <incontrol_3> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_3> 
+INFO:Xst:2261 - The FF/Latch <incontrol_4> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_4> 
+INFO:Xst:2261 - The FF/Latch <incontrol_5> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_5> 
+INFO:Xst:2261 - The FF/Latch <incontrol_6> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_6> 
+INFO:Xst:2261 - The FF/Latch <incontrol_7> in Unit <UnitControl> is equivalent to the following FF/Latch, which will be removed : <control_7> 
 
 Optimizing unit <Main> ...
 
 Optimizing unit <UnitControl> ...
 WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <acontrol_2> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <incontrol_0> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <acontrol_2> (without init value) has a constant value of 0 in block <UnitControl>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <PC> ...
 
@@ -435,6 +500,10 @@ Optimizing unit <RA> ...
 Optimizing unit <RB> ...
 
 Optimizing unit <ALU> ...
+
+Optimizing unit <PR> ...
+
+Optimizing unit <RC> ...
 WARNING:Xst:2677 - Node <eaddress_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <eaddress_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <eaddress_2> of sequential type is unconnected in block <Main>.
@@ -521,6 +590,9 @@ WARNING:Xst:2677 - Node <G1/counter_decoding_3> of sequential type is unconnecte
 WARNING:Xst:2677 - Node <G1/counter_decoding_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/counter_decoding_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/counter_decoding_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/scontrol_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/scontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/scontrol_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/operando_2_5> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/operando_2_4> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/operando_2_3> of sequential type is unconnected in block <Main>.
@@ -533,13 +605,34 @@ WARNING:Xst:2677 - Node <G1/operando_1_3> of sequential type is unconnected in b
 WARNING:Xst:2677 - Node <G1/operando_1_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/operando_1_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/operando_1_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/acontrol_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/acontrol_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/acontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/acontrol_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/pcontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/pcontrol_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/ccontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/ccontrol_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/rcontrol_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/rcontrol_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/rcontrol_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/rcontrol_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/present_state_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_24> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_23> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_22> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_21> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_20> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_19> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_18> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_17> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_16> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G1/control_13> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/control_10> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/control_9> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/control_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/acontrol_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/acontrol_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/acontrol_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/next_state_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/data_ir_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/data_ir_14> of sequential type is unconnected in block <Main>.
@@ -566,10 +659,6 @@ WARNING:Xst:2677 - Node <G1/incontrol_4> of sequential type is unconnected in bl
 WARNING:Xst:2677 - Node <G1/incontrol_3> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G1/incontrol_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/rcontrol_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/rcontrol_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/rcontrol_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G1/rcontrol_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G2/registro_13> of sequential type is unconnected in block <Main>.
@@ -634,22 +723,6 @@ WARNING:Xst:2677 - Node <G5/registro_3> of sequential type is unconnected in blo
 WARNING:Xst:2677 - Node <G5/registro_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G5/registro_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G5/registro_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_34_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_33_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_33_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_33_13> of sequential type is unconnected in block <Main>.
@@ -714,22 +787,6 @@ WARNING:Xst:2677 - Node <G6/ram_30_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_30_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_30_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_30_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_3_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_29_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_29_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_29_13> of sequential type is unconnected in block <Main>.
@@ -746,6 +803,38 @@ WARNING:Xst:2677 - Node <G6/ram_29_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_29_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_29_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_29_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_3_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_34_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_2_13> of sequential type is unconnected in block <Main>.
@@ -794,22 +883,6 @@ WARNING:Xst:2677 - Node <G6/ram_1_3> of sequential type is unconnected in block 
 WARNING:Xst:2677 - Node <G6/ram_1_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_1_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_1_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_0_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_27_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_27_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_27_13> of sequential type is unconnected in block <Main>.
@@ -842,6 +915,22 @@ WARNING:Xst:2677 - Node <G6/ram_26_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_26_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_26_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_26_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_0_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_25_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_25_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_25_13> of sequential type is unconnected in block <Main>.
@@ -906,6 +995,22 @@ WARNING:Xst:2677 - Node <G6/ram_18_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_18_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_18_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_18_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G6/ram_23_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_17_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_17_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_17_13> of sequential type is unconnected in block <Main>.
@@ -938,22 +1043,6 @@ WARNING:Xst:2677 - Node <G6/ram_22_3> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <G6/ram_22_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_22_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_22_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G6/ram_23_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_16_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_16_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G6/ram_16_13> of sequential type is unconnected in block <Main>.
@@ -1690,22 +1779,6 @@ WARNING:Xst:2677 - Node <G8/registro_3> of sequential type is unconnected in blo
 WARNING:Xst:2677 - Node <G8/registro_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G8/registro_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G8/registro_0> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_15> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_14> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_13> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_12> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_11> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_10> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_9> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_8> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_7> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_6> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_5> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_4> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_3> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_2> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_1> of sequential type is unconnected in block <Main>.
-WARNING:Xst:2677 - Node <G9/TC_0> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G9/TB_15> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G9/TB_14> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G9/TB_13> of sequential type is unconnected in block <Main>.
@@ -1738,6 +1811,54 @@ WARNING:Xst:2677 - Node <G9/TA_3> of sequential type is unconnected in block <Ma
 WARNING:Xst:2677 - Node <G9/TA_2> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G9/TA_1> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <G9/TA_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G9/TC_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_11> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G10/registro_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_10> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_9> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_8> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_4> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_3> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_2> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_1> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_0> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_15> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_14> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_13> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_12> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <G11/registro_11> of sequential type is unconnected in block <Main>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -1827,14 +1948,14 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 
 
-Total REAL time to Xst completion: 25.00 secs
-Total CPU time to Xst completion: 25.04 secs
+Total REAL time to Xst completion: 31.00 secs
+Total CPU time to Xst completion: 31.08 secs
  
 --> 
 
-Total memory usage is 293240 kilobytes
+Total memory usage is 308848 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1326 (   0 filtered)
-Number of infos    :   22 (   0 filtered)
+Number of warnings : 1378 (   0 filtered)
+Number of infos    :   28 (   0 filtered)
 
