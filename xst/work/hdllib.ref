@@ -1,5 +1,5 @@
 AR rb behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RB.vhd" sub00/vhpl19 1490039348
-AR unitcontrol behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" sub00/vhpl05 1490039334
+AR unitcontrol behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" sub00/vhpl05 1490123779
 AR main behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/Main.vhd" sub00/vhpl09 1490039352
 AR databuscontrol behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/DataBusControl.vhd" sub00/vhpl13 1489770559
 EN mar NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" sub00/vhpl00 1490039337
@@ -14,7 +14,7 @@ AR ram behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de p
 AR ra behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RA.vhd" sub00/vhpl17 1490039346
 AR mar behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MAR.vhd" sub00/vhpl01 1490039338
 AR alu behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/ALU.vhd" sub00/vhpl21 1490039350
-EN unitcontrol NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" sub00/vhpl04 1490039333
+EN unitcontrol NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/UnitControl.vhd" sub00/vhpl04 1490123778
 EN ram NULL "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/RAM.vhd" sub00/vhpl14 1490039343
 AR pc behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/PC.vhd" sub00/vhpl03 1490039336
 AR mbr behavioral "C:/Users/U/Documents/UNIVERSIDAD/Semestre 9/Arquitectura de procesadores/ProyectoFinalArquitecturaProcesadores/MBR.vhd" sub00/vhpl07 1490039340

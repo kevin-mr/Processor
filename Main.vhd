@@ -67,7 +67,9 @@ architecture Behavioral of Main is
              incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
 				 rcontrol: out  STD_LOGIC_VECTOR (3 downto 0);
              outcontrol : out  STD_LOGIC_VECTOR (1 downto 0);
-				 acontrol: out  STD_LOGIC_VECTOR (3 downto 0));
+				 acontrol: out  STD_LOGIC_VECTOR (3 downto 0);
+				 ccontrol: out  STD_LOGIC_VECTOR (1 downto 0);
+				 pcontrol: out  STD_LOGIC_VECTOR (1 downto 0));
 	end component;
 	component DataBusControl is
 		Port ( clock : in  STD_LOGIC;
@@ -105,6 +107,8 @@ architecture Behavioral of Main is
              output : out  STD_LOGIC_VECTOR (15 downto 0));
 	end component;
 	
+	signal pcontrol: STD_LOGIC_VECTOR (1 downto 0);
+	signal ccontrol: STD_LOGIC_VECTOR (1 downto 0);
 	signal acontrol: STD_LOGIC_VECTOR (3 downto 0);
 	signal rcontrol: STD_LOGIC_VECTOR (3 downto 0);
 	signal scontrol: STD_LOGIC_VECTOR (2 downto 0);
@@ -135,7 +139,9 @@ G1: UnitControl
 		incontrol => incontrol,
 		rcontrol => rcontrol,
 		outcontrol => outcontrol,
-		acontrol => acontrol);
+		acontrol => acontrol,
+		ccontrol => ccontrol,
+		pcontrol => pcontrol);
 G2: PC Port Map(
 		clock => clock,
 		control => incontrol(1 downto 0),
@@ -198,6 +204,10 @@ begin
 		edata := data_ra;
 	elsif acontrol(3) = '1' then
 		edata := data_alu;
+	elsif ccontrol(1) = '1' then
+	
+	elsif pcontrol(1) = '1' then
+	
 	end if;
 	data_bus <= edata;
 end process;

@@ -38,7 +38,9 @@ entity UnitControl is
            incontrol : out  STD_LOGIC_VECTOR (7 downto 0);
 			  rcontrol: out  STD_LOGIC_VECTOR (3 downto 0);
            outcontrol : out  STD_LOGIC_VECTOR (1 downto 0);
-			  acontrol : out  STD_LOGIC_VECTOR (3 downto 0));
+			  acontrol : out  STD_LOGIC_VECTOR (3 downto 0);
+			  ccontrol : out  STD_LOGIC_VECTOR (1 downto 0);
+			  pcontrol : out  STD_LOGIC_VECTOR (1 downto 0));
 end UnitControl;
 
 architecture Behavioral of UnitControl is	
@@ -48,7 +50,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -69,7 +73,7 @@ architecture Behavioral of UnitControl is
 					vincontrol:= "10000000";
 			when others =>					
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end fetch_instruction;
 	function storage_ram (state: integer) return STD_LOGIC_VECTOR is
@@ -78,7 +82,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -89,7 +95,7 @@ architecture Behavioral of UnitControl is
 				voutcontrol:= "01";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end storage_ram;
 	function storage_ra (state: integer) return STD_LOGIC_VECTOR is
@@ -98,7 +104,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -107,7 +115,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end storage_ra;
 	function storage_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -116,7 +124,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -125,7 +135,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0001";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end storage_rb;
 	function move_rb_ra (state: integer) return STD_LOGIC_VECTOR is
@@ -134,7 +144,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -143,7 +155,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0001";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end move_rb_ra;
 	function move_ra_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -152,7 +164,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -161,7 +175,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end move_ra_rb;
 	function move_ram_ra (state: integer) return STD_LOGIC_VECTOR is
@@ -170,7 +184,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -181,7 +197,7 @@ architecture Behavioral of UnitControl is
 				voutcontrol:= "01";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end move_ram_ra;
 	function move_ram_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -190,7 +206,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -200,7 +218,7 @@ architecture Behavioral of UnitControl is
 			when 3 =>
 				voutcontrol:= "01";
 			when others =>
-			control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+			control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 			return control;
 		end case;
 	end move_ram_rb;
@@ -210,7 +228,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -221,7 +241,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end move_ra_ram;
 	function move_rb_ram (state: integer) return STD_LOGIC_VECTOR is
@@ -230,7 +250,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -241,7 +263,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0001";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end move_rb_ram;
 	function add_ra_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -250,7 +272,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -269,7 +293,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end add_ra_rb;
 	function add_ram_ra (state: integer) return STD_LOGIC_VECTOR is
@@ -278,7 +302,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -299,7 +325,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end add_ram_ra;
 	function add_ram_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -308,7 +334,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -329,7 +357,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0001";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end add_ram_rb;
 	function and_ra_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -338,7 +366,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -357,7 +387,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end and_ra_rb;
 	function and_ra_ram (state: integer) return STD_LOGIC_VECTOR is
@@ -366,7 +396,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -387,7 +419,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end and_ra_ram;
 	function and_rb_ram (state: integer) return STD_LOGIC_VECTOR is
@@ -396,7 +428,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -417,7 +451,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0001";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end and_rb_ram;
 	function not_ra (state: integer) return STD_LOGIC_VECTOR is
@@ -426,7 +460,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -441,7 +477,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end not_ra;
 	function not_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -450,7 +486,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -465,7 +503,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0001";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end not_rb;
 	function not_ram (state: integer) return STD_LOGIC_VECTOR is
@@ -474,7 +512,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -491,7 +531,7 @@ architecture Behavioral of UnitControl is
 				voutcontrol:= "01";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end not_ram;
 	function dec_ra (state: integer) return STD_LOGIC_VECTOR is
@@ -500,7 +540,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -515,7 +557,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0100";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end dec_ra;
 	function dec_rb (state: integer) return STD_LOGIC_VECTOR is
@@ -524,7 +566,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -539,7 +583,7 @@ architecture Behavioral of UnitControl is
 				vrcontrol:= "0001";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end dec_rb;
 	function dec_ram (state: integer) return STD_LOGIC_VECTOR is
@@ -548,7 +592,9 @@ architecture Behavioral of UnitControl is
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
 		variable vrcontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
 		variable vacontrol: STD_LOGIC_VECTOR (3 downto 0) :=  X"0";
-		variable control: STD_LOGIC_VECTOR (20 downto 0) := "000000000000000000000";
+		variable vccontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable vpcontrol: STD_LOGIC_VECTOR (1 downto 0) :=  "00";
+		variable control: STD_LOGIC_VECTOR (24 downto 0);
 	begin
 		case state is
 			when 1 =>
@@ -565,7 +611,7 @@ architecture Behavioral of UnitControl is
 				voutcontrol:= "01";
 			when others =>
 		end case;
-		control := vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
+		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end dec_ram;
 	type states is (fetch,
@@ -575,7 +621,7 @@ begin
 
 process(clock)
 	variable data_ir: STD_LOGIC_VECTOR (15 downto 0);
-	variable control: STD_LOGIC_VECTOR (20 downto 0);
+	variable control: STD_LOGIC_VECTOR (24 downto 0);
 	variable counter: integer := 0;
 	variable counter_decoding: integer := 0;
 begin
@@ -594,6 +640,8 @@ begin
 				outcontrol <= control(12 downto 11);
 				rcontrol <= control(16 downto 13);
 				acontrol <= control(20 downto 17);
+				ccontrol <= control(22 downto 21);
+				pcontrol <= control(24 downto 23);
 			when decoding =>
 				counter := 0; 
 				counter_decoding := counter_decoding + 1;				
@@ -726,6 +774,8 @@ begin
 								outcontrol <= control(12 downto 11);
 								rcontrol <= control(16 downto 13);
 								acontrol <= control(20 downto 17);
+								ccontrol <= control(22 downto 21);
+								pcontrol <= control(24 downto 23);
 		end case;
 		
 		present_state <= next_state;
