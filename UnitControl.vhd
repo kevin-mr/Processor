@@ -296,7 +296,7 @@ architecture Behavioral of UnitControl is
 		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
 	end add_ra_rb;
-	function add_ram_ra (state: integer) return STD_LOGIC_VECTOR is
+	function add_ra_ram (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
@@ -308,15 +308,15 @@ architecture Behavioral of UnitControl is
 	begin
 		case state is
 			when 1 =>
-				vrcontrol:= "1000";
-			when 2 =>
-				vacontrol:= "0001";
-			when 3 =>
 				vscontrol:= "001";
-			when 4 =>
+			when 2 =>
 				voutcontrol:= "10";
-			when 5 =>
+			when 3 =>
 				vacontrol:= "0010";
+			when 4 =>
+				vrcontrol:= "1000";
+			when 5 =>
+				vacontrol:= "0001";
 			when 6 =>
 				vacontrol:= "0011";
 			when 7 =>
@@ -327,8 +327,8 @@ architecture Behavioral of UnitControl is
 		end case;
 		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
-	end add_ram_ra;
-	function add_ram_rb (state: integer) return STD_LOGIC_VECTOR is
+	end add_ra_ram;
+	function add_rb_ram (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
 		variable voutcontrol: STD_LOGIC_VECTOR (1 downto 0):= "00";
@@ -340,26 +340,26 @@ architecture Behavioral of UnitControl is
 	begin
 		case state is
 			when 1 =>
-				vrcontrol:= "0010";
-			when 2 =>
-				vacontrol:= "0001";
-			when 3 =>
 				vscontrol:= "001";
-			when 4 =>
+			when 2 =>
 				voutcontrol:= "10";
-			when 5 =>
+			when 3 =>
 				vacontrol:= "0010";
+			when 4 =>
+				vrcontrol:= "0010";
+			when 5 =>
+				vacontrol:= "0001";
 			when 6 =>
 				vacontrol:= "0011";
 			when 7 =>
 				vacontrol:= "1000";
 			when 8 =>
-				vrcontrol:= "0001";
+				vrcontrol:= "0100";
 			when others =>
 		end case;
 		control := vpcontrol & vccontrol & vacontrol & vrcontrol & voutcontrol & vscontrol & vincontrol;
 		return control;
-	end add_ram_rb;
+	end add_rb_ram;
 	function and_ra_rb (state: integer) return STD_LOGIC_VECTOR is
 		variable vscontrol: STD_LOGIC_VECTOR (2 downto 0) := "000";
 		variable vincontrol: STD_LOGIC_VECTOR (7 downto 0):= X"00";
@@ -793,7 +793,8 @@ architecture Behavioral of UnitControl is
 		return control;
 	end jmp;
 	type states is (fetch,
-						 decoding);
+						 decoding,
+						 finish);
 	signal present_state, next_state: states;
 begin
 
@@ -885,12 +886,12 @@ begin
 							if counter_decoding = 8 then
 								next_state <= fetch;
 							end if;
-								control := add_ram_ra(counter_decoding);
+								control := add_ra_ram(counter_decoding);
 						elsif data_ir(11 downto 6) = "111110" and data_ir(5 downto 0) /= "111101"then
 							if counter_decoding = 8 then
 								next_state <= fetch;
 							end if;
-								control := add_ram_rb(counter_decoding);
+								control := add_rb_ram(counter_decoding);
 						end if;
 					when "0011" =>
 						if data_ir(11 downto 6) = "111101" and data_ir(5 downto 0) = "111110"then
@@ -983,14 +984,16 @@ begin
 								control := cmp_rb_ram(counter_decoding);
 						end if;
 					when "1000" =>
-							if counter_decoding = 2 then
-								if data(0) = '0' then
-									counter_decoding := 4;
-								end if;
-							elsif counter_decoding >= 3 then
-								next_state <= fetch;
+						if counter_decoding = 2 then
+							if data(0) = '1' then
+								counter_decoding := 4;
 							end if;
-								control := jmp(counter_decoding);
+						elsif counter_decoding >= 3 then
+							next_state <= fetch;
+						end if;
+							control := jmp(counter_decoding);
+					when "1111" =>
+						next_state <= finish;
 					when others =>
 				end case;
 								incontrol <= control(7 downto 0);
@@ -1000,6 +1003,7 @@ begin
 								acontrol <= control(20 downto 17);
 								ccontrol <= control(22 downto 21);
 								pcontrol <= control(24 downto 23);
+				when finish =>
 		end case;
 		
 		present_state <= next_state;
