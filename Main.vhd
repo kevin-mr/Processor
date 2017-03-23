@@ -138,15 +138,15 @@ architecture Behavioral of Main is
 	signal data_alu: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_pr: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_rc: STD_LOGIC_VECTOR (15 downto 0);
+	signal data_bus_in: STD_LOGIC_VECTOR (15 downto 0);
 	signal data_bus: STD_LOGIC_VECTOR (15 downto 0);
-	signal address: STD_LOGIC_VECTOR (5 downto 0);
 	signal address_bus: STD_LOGIC_VECTOR (5 downto 0);
 begin
 
 G1: UnitControl 
 	 Port Map(
 		clock => clock,
-		data => data_bus,
+		data => data_bus_in,
 		operando_1 => operando_1,
 		operando_2 => operando_2,
 		scontrol => scontrol,
@@ -159,12 +159,12 @@ G1: UnitControl
 G2: PC Port Map(
 		clock => clock,
 		control => incontrol(1 downto 0),
-		input => data_bus,
+		input => data_bus_in,
 		output => data_pc);
 G3: MAR Port Map(
 		clock => clock,
 		control => incontrol(3 downto 2),
-		input => data_bus,
+		input => data_bus_in,
 		output => data_mar);
 G4: MBR Port Map(
 		clock => clock,
@@ -174,7 +174,7 @@ G4: MBR Port Map(
 G5: IR Port Map(
 		clock => clock,
 		control => incontrol(7 downto 6),
-		input => data_bus,
+		input => data_bus_in,
 		output => data_ir);
 G6: RAM Port Map(
 		clock => clock,
@@ -212,16 +212,10 @@ G11: RC Port Map(
 process(incontrol,outcontrol,scontrol,acontrol,ccontrol,pcontrol,data_pc,data_mar,data_mbr,data_ir,data_ram,operando_1,operando_2,data_ra,data_rb,data_alu,data_pr,data_rc)
 	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
 begin
-	if incontrol(1) = '1' then 
-		edata := data_pc;
-	elsif incontrol(5) = '1' then 
-		edata := data_mbr;
-	elsif incontrol(7) = '1' then 
-		edata := data_ir;
-	elsif outcontrol(1) = '1' then
+	if outcontrol(1) = '1' then
 		edata := data_ram;
-	elsif scontrol(2) = '1' then
-		edata := "0000000000" & operando_2;
+--	elsif scontrol(2) = '1' then
+--		edata := "0000000000" & operando_2;
 	elsif rcontrol(1) = '1' then
 		edata := data_rb;
 	elsif rcontrol(3) = '1' then
@@ -232,21 +226,34 @@ begin
 		edata := data_rc;
 	elsif pcontrol(1) = '1' then
 		edata := data_pr;
+	elsif scontrol(1) = '1' then
+		edata := "0000000000" & operando_1;
+	elsif scontrol(0) = '1' then
+		edata := "0000000000" & operando_2;
 	end if;
 	data_bus <= edata;
 end process;
 
-process(incontrol,scontrol,address,data_mar,operando_1,operando_2)
+process(incontrol,scontrol,data_mar,operando_1,operando_2)
 	variable eaddress: STD_LOGIC_VECTOR (5 downto 0):= "000000";
 begin
 	if incontrol(3) = '1' then 
 		eaddress := data_mar(5 downto 0);
-	elsif scontrol(1) = '1' then
-		eaddress := operando_1;
-	elsif scontrol(0) = '1' then
-		eaddress := operando_2;
 	end if;
 	address_bus <= eaddress;
+end process;
+
+process(incontrol,data_pc,data_mbr,data_ir)
+	variable edata: STD_LOGIC_VECTOR (15 downto 0):= X"0000";
+begin
+	if incontrol(1) = '1' then 
+		edata := data_pc;
+	elsif incontrol(5) = '1' then 
+		edata := data_mbr;
+	elsif incontrol(7) = '1' then 
+		edata := data_ir;
+	end if;
+	data_bus_in <= edata;
 end process;
 
 end Behavioral;

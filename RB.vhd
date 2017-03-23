@@ -41,7 +41,7 @@ architecture Behavioral of RB is
 begin
 
 process(clock,control,input)
-	variable registro: STD_LOGIC_VECTOR (15 downto 0) := X"1FFF";
+	variable registro: STD_LOGIC_VECTOR (15 downto 0) := X"000A";
 begin
 	if clock'event and clock = '1' then
 		case control is

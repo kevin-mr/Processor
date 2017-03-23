@@ -41,7 +41,7 @@ architecture Behavioral of RA is
 begin
 
 process(clock,control,input)
-	variable registro: STD_LOGIC_VECTOR (15 downto 0) := X"FFF1";
+	variable registro: STD_LOGIC_VECTOR (15 downto 0) := X"0008";
 begin
 	if clock'event and clock = '1' then
 		case control is
